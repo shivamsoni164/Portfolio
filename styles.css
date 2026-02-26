@@ -1,0 +1,403 @@
+/* ==========================================================================
+   Design Tokens (from Figma variables)
+   ========================================================================== */
+
+:root {
+    /* Colors */
+    --color-grey-50: #fafafa;
+    --color-grey-200: #e8e8e8;
+    --color-grey-400: #a3a3a3;
+    --color-grey-500: #737373;
+    --color-grey-600: #525252;
+    --color-grey-700: #404040;
+    --color-grey-800: #262626;
+    --color-grey-950: #0a0a0a;
+
+    /* Project card placeholder */
+    --color-project-placeholder: #c79999;
+
+    /* Typography - Font Families */
+    --font-primary: 'Playfair Display', 'Georgia', serif;
+    --font-secondary: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+    /* Typography - Font Sizes */
+    --font-size-display-l: 72px;
+    --font-size-h2: 44px;
+    --font-size-h3: 36px;
+    --font-size-h5: 22px;
+    --font-size-h6: 18px;
+    --font-size-body-m: 16px;
+
+    /* Typography - Font Weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+
+    /* Typography - Line Heights */
+    --line-height-display: 90px;
+    --line-height-tight: 62px;
+    --line-height-normal: 31px;
+    --line-height-loose: 22px;
+
+    /* Typography - Letter Spacing */
+    --letter-spacing-tighter: -3px;
+    --letter-spacing-tight: -2px;
+    --letter-spacing-normal: 0px;
+
+    /* Layout */
+    --page-padding-x: 160px;
+    --section-gap: 60px;
+    --label-width: 259px;
+    --content-gap: 22px;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    background-color: #ffffff;
+    color: var(--color-grey-700);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-body-m);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   Page Layout
+   ========================================================================== */
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
+    padding: 100px 0;
+}
+
+/* ==========================================================================
+   Section Layout (shared two-column pattern)
+   ========================================================================== */
+
+.section {
+    padding: 0 var(--page-padding-x);
+}
+
+.section-row {
+    display: flex;
+    gap: var(--content-gap);
+    align-items: flex-start;
+    width: 100%;
+}
+
+.section-label {
+    flex-shrink: 0;
+    width: var(--label-width);
+}
+
+.label-text {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-grey-950);
+}
+
+.section-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.hero-label-spacer {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    justify-content: center;
+    min-width: 0;
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-display-l);
+    font-weight: var(--font-weight-light);
+    line-height: var(--line-height-display);
+    letter-spacing: var(--letter-spacing-tighter);
+    color: var(--color-grey-600);
+}
+
+.hero-ampersand {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--color-grey-400);
+}
+
+.hero-tagline {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-medium);
+    line-height: 51px;
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-grey-600);
+}
+
+/* ==========================================================================
+   Body Text
+   ========================================================================== */
+
+.body-text {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-regular);
+    line-height: 40px;
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-grey-700);
+}
+
+/* ==========================================================================
+   CTA Button
+   ========================================================================== */
+
+.cta-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    background-color: var(--color-grey-800);
+    color: var(--color-grey-50);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-medium);
+    line-height: 33px;
+    letter-spacing: var(--letter-spacing-normal);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--color-grey-950);
+    transform: translateY(-1px);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.cta-button svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Divider
+   ========================================================================== */
+
+.divider {
+    padding: 0 var(--page-padding-x);
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.divider svg {
+    width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   Projects Section
+   ========================================================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 362px 362px;
+    gap: 50px 20px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 362px;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+}
+
+.project-thumbnail {
+    width: 100%;
+    height: 204px;
+    background-color: var(--color-project-placeholder);
+    transition: opacity 0.2s ease;
+}
+
+.project-card:hover .project-thumbnail {
+    opacity: 0.9;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-grey-800);
+}
+
+.project-description {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-body-m);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-loose);
+    color: var(--color-grey-500);
+}
+
+/* ==========================================================================
+   My Process Section
+   ========================================================================== */
+
+.process {
+    min-height: 200px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    :root {
+        --page-padding-x: 80px;
+    }
+}
+
+@media (max-width: 960px) {
+    :root {
+        --page-padding-x: 40px;
+        --font-size-display-l: 52px;
+        --line-height-display: 66px;
+        --font-size-h3: 28px;
+    }
+
+    .section-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .section-label {
+        width: auto;
+    }
+
+    .hero-label-spacer {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --page-padding-x: 24px;
+        --font-size-display-l: 40px;
+        --line-height-display: 52px;
+        --font-size-h2: 32px;
+        --font-size-h3: 24px;
+        --font-size-h5: 18px;
+    }
+
+    .hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .body-text {
+        line-height: 32px;
+    }
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
