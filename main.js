@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── AskShivam chat ─────────────────────────────────────────────────────
     const STACK_AI_URL = 'https://api.stack-ai.com/inference/v0/run/e0d29d77-0008-4f61-9bec-1b3b45ec324a/694d324d82550e8c1e757e13';
-    const STACK_AI_KEY = 'YOUR_STACK_AI_API_KEY'; // ← paste your Bearer token here
+    const STACK_AI_KEY = 'd96010b6-4e98-4fd1-bd6d-59c8f946619e';
 
     const overlay   = document.getElementById('chatOverlay');
     const panel     = document.getElementById('chatPanel');
