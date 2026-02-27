@@ -438,8 +438,7 @@ img {
     top: 30px;
     right: 0;
     width: 512px;
-    height: calc(100vh - 30px);
-    max-height: 905px;
+    height: calc(100vh - 60px);
     background: #fcfcfc;
     display: flex;
     flex-direction: column;
@@ -460,6 +459,10 @@ img {
     padding: 0 20px;
     height: 60px;
     flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    background: #fcfcfc;
+    z-index: 1;
 }
 
 .chat-title {
@@ -478,7 +481,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4px;
+    min-width: 44px;
+    min-height: 44px;
     transition: color 0.2s ease;
 }
 
@@ -496,7 +500,9 @@ img {
 /* Messages */
 .chat-messages {
     flex: 1;
+    min-height: 0; /* critical: allows flex child to shrink below content size */
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -617,10 +623,12 @@ img {
     cursor: not-allowed;
 }
 
-/* Chat responsive */
+/* Chat responsive — tablet (640px–960px) */
 @media (max-width: 960px) {
     .chat-panel {
-        width: 420px;
+        width: 400px;
+        top: 30px;
+        height: calc(100vh - 30px);
     }
 
     .chat-bubble {
@@ -628,36 +636,62 @@ img {
     }
 }
 
+/* Chat responsive — mobile (<640px) */
 @media (max-width: 640px) {
     .chat-panel {
-        width: 100%;
+        width: 100vw;
         top: 0;
+        right: 0;
+        /* Use stretch between top and bottom so footer always stays visible
+           even when the virtual keyboard is raised */
+        height: 100%;
         height: 100dvh;
         max-height: none;
         border-radius: 0;
     }
 
-    .chat-bubble {
-        max-width: 85%;
-        font-size: var(--font-size-body-m);
-        line-height: 22px;
-    }
-
-    .chat-input-row {
-        padding: 10px 14px;
-    }
-
-    .chat-input {
-        padding: 5px 14px;
-        font-size: 16px; /* prevents iOS auto-zoom */
-    }
-
     .chat-header {
-        padding: 0 14px;
+        padding: 0 16px;
+        height: 56px;
     }
 
     .chat-messages {
-        padding: 16px 14px;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .chat-bubble {
+        max-width: 85%;
+        padding: 12px 14px;
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+    .chat-footer {
+        /* Keep footer pinned above the virtual keyboard on iOS */
+        position: sticky;
+        bottom: 0;
+        background: #fcfcfc;
+    }
+
+    .chat-input-row {
+        padding: 10px 16px;
+        height: auto;
+        min-height: 62px;
+    }
+
+    .chat-input {
+        padding: 10px 14px;
+        height: auto;
+        min-height: 42px;
+        font-size: 16px; /* prevents iOS Safari auto-zoom */
+    }
+
+    .chat-send {
+        min-width: 44px;
+        min-height: 44px;
+        width: 44px;
+        height: 44px;
     }
 }
 
