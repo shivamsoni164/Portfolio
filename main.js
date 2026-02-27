@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.classList.remove('active');
         overlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        messages.innerHTML = '';
+        // Clear after slide-out animation completes (350ms)
+        setTimeout(() => { messages.innerHTML = ''; }, 350);
     }
 
     ctaBtn.addEventListener('click', (e) => { e.preventDefault(); openChat(); });
