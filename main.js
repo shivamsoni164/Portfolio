@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.classList.remove('active');
         overlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        messages.innerHTML = '';
     }
 
     ctaBtn.addEventListener('click', (e) => { e.preventDefault(); openChat(); });
