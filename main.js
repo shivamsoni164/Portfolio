@@ -61,12 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     sendBtn.addEventListener('click', sendMessage);
 
+    function renderMarkdown(text) {
+        return text
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/^#{1,3} (.+)$/gm, '<strong>$1</strong>')
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/^- (.+)$/gm, '• $1')
+            .replace(/---/g, '')
+            .replace(/\n\n/g, '<br><br>')
+            .replace(/\n/g, '<br>');
+    }
+
     function appendMessage(text, isUser) {
         const row    = document.createElement('div');
         row.className = `chat-message ${isUser ? 'chat-message--user' : 'chat-message--bot'}`;
         const bubble = document.createElement('div');
         bubble.className = 'chat-bubble';
-        bubble.textContent = text;
+        if (isUser) {
+            bubble.textContent = text;
+        } else {
+            bubble.innerHTML = renderMarkdown(text);
+        }
         row.appendChild(bubble);
         messages.appendChild(row);
         messages.scrollTop = messages.scrollHeight;
