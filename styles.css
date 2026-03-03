@@ -53,6 +53,7 @@
 
     /* Additional colors */
     --color-grey-100: #f5f5f5;
+    --color-grey-300: #d4d4d4;
     --color-grey-900: #171717;
 
     /* Additional font sizes */
@@ -138,6 +139,26 @@ img {
     align-items: center;
     justify-content: center;
     line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-logo-flip {
+    display: none;
+    font-size: 14px;
+}
+
+.nav-logo:hover {
+    background-color: var(--color-grey-950);
+    color: var(--color-grey-50);
+}
+
+.nav-logo:hover .nav-logo-default {
+    display: none;
+}
+
+.nav-logo:hover .nav-logo-flip {
+    display: block;
 }
 
 /* ==========================================================================
@@ -277,16 +298,28 @@ img {
     font-weight: var(--font-weight-medium);
     line-height: 33px;
     letter-spacing: var(--letter-spacing-normal);
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    border-radius: 0;
+    transition: background-color 0.2s ease, border-radius 0.2s ease, padding 0.2s ease;
 }
 
 .cta-button:hover {
     background-color: var(--color-grey-950);
-    transform: translateY(-1px);
+    border-radius: 10px;
+    padding: 12px;
+    gap: 8px;
 }
 
 .cta-button:active {
-    transform: translateY(0);
+    background-color: var(--color-grey-950);
+}
+
+.cta-button:disabled,
+.cta-button[aria-disabled="true"] {
+    background-color: var(--color-grey-600);
+    color: var(--color-grey-400);
+    pointer-events: none;
+    border-radius: 10px;
+    padding: 12px;
 }
 
 .cta-button svg {
@@ -663,8 +696,8 @@ img {
 }
 
 .chat-panel.has-messages .chat-send:hover {
-    background: var(--color-grey-800);
-    color: var(--color-grey-50);
+    background: var(--color-grey-300);
+    color: var(--color-grey-800);
 }
 
 .chat-panel.has-messages .chat-send:disabled {
@@ -784,8 +817,8 @@ img {
 }
 
 .chat-send:hover {
-    background: var(--color-grey-800);
-    color: var(--color-grey-50);
+    background: var(--color-grey-300);
+    color: var(--color-grey-800);
 }
 
 .chat-send:disabled {
