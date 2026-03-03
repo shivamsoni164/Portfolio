@@ -549,8 +549,10 @@ img {
     min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 40px;
     padding: 20px 0;
+    overflow-y: auto;
 }
 
 .chat-welcome-intro {
@@ -560,6 +562,8 @@ img {
     gap: 10px;
     padding: 0 20px;
     text-align: center;
+    max-width: 305px;
+    margin: 0 auto;
 }
 
 .chat-welcome-icon {
@@ -809,7 +813,7 @@ img {
 
     .chat-panel {
         width: 100%;
-        height: 100%;
+        height: 100vh;
         height: 100dvh;
         border-radius: 0;
         transform: translateX(100%);
@@ -832,6 +836,19 @@ img {
         line-height: 22px;
     }
 
+    .chat-welcome {
+        gap: 24px;
+        padding: 16px 0;
+    }
+
+    .chat-prompts {
+        padding: 0 16px;
+    }
+
+    .chat-welcome-description {
+        font-size: 13px;
+    }
+
     .chat-prompt {
         font-size: 15px;
         line-height: 24px;
@@ -842,6 +859,7 @@ img {
         position: sticky;
         bottom: 0;
         background: #ffffff;
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
     .chat-input-row {
