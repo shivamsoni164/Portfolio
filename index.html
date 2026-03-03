@@ -15,11 +15,14 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="nav-bar">
+        <div class="nav-logo">SS</div>
+    </nav>
     <main class="page">
 
         <!-- Hero Section -->
@@ -115,40 +118,61 @@
 
     </main>
 
-    <!-- Chat Overlay -->
-    <div class="chat-overlay" id="chatOverlay" aria-hidden="true"></div>
-
-    <!-- Chat Panel -->
-    <aside class="chat-panel" id="chatPanel" role="dialog" aria-label="AskShivam chat" aria-modal="true">
-        <div class="chat-header">
-            <span class="chat-title">AskShivam</span>
-            <button class="chat-close" id="chatClose" aria-label="Close chat">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </div>
-        <div class="chat-divider"></div>
-        <div class="chat-messages" id="chatMessages"></div>
-        <div class="chat-footer">
-            <div class="chat-divider"></div>
-            <div class="chat-input-row">
-                <input
-                    type="text"
-                    class="chat-input"
-                    id="chatInput"
-                    placeholder="Ask anything about Shivam ..."
-                    autocomplete="off"
-                    aria-label="Your message"
-                >
-                <button class="chat-send" id="chatSend" aria-label="Send message">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(-45deg)">
-                        <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Chat Overlay (panel lives inside) -->
+    <div class="chat-overlay" id="chatOverlay" aria-hidden="true">
+        <aside class="chat-panel" id="chatPanel" role="dialog" aria-label="Ask Shivam chat" aria-modal="true">
+            <div class="chat-header">
+                <span class="chat-title">Ask Shivam</span>
+                <button class="chat-close" id="chatClose" aria-label="Close chat">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
-        </div>
-    </aside>
+            <div class="chat-divider"></div>
+
+            <!-- Welcome state (shown before any messages) -->
+            <div class="chat-welcome" id="chatWelcome">
+                <div class="chat-welcome-intro">
+                    <svg class="chat-welcome-icon" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M17.5 0C17.5 0 15.75 10.5 13.125 13.125C10.5 15.75 0 17.5 0 17.5C0 17.5 10.5 19.25 13.125 21.875C15.75 24.5 17.5 35 17.5 35C17.5 35 19.25 24.5 21.875 21.875C24.5 19.25 35 17.5 35 17.5C35 17.5 24.5 15.75 21.875 13.125C19.25 10.5 17.5 0 17.5 0Z" fill="#0a0a0a"/>
+                    </svg>
+                    <div class="chat-welcome-text">
+                        <p class="chat-welcome-title">Ask Shivam</p>
+                        <p class="chat-welcome-description">Hi, I'm Shivam's AI assistant. Ask me about his projects, design process, case studies, or background — I'll answer based only on what's documented in his portfolio.</p>
+                        <p class="chat-welcome-powered">Powered by StackAI</p>
+                    </div>
+                </div>
+                <div class="chat-prompts">
+                    <button class="chat-prompt">🤖 Tell me something about his AI skills</button>
+                    <button class="chat-prompt">😊 What is Shivam's design experience?</button>
+                    <button class="chat-prompt">🧑‍💼 What's Shivam's educational background?</button>
+                </div>
+            </div>
+
+            <!-- Messages (shown after first message is sent) -->
+            <div class="chat-messages" id="chatMessages"></div>
+
+            <div class="chat-footer">
+                <div class="chat-divider"></div>
+                <div class="chat-input-row">
+                    <input
+                        type="text"
+                        class="chat-input"
+                        id="chatInput"
+                        placeholder="Ask anything about Shivam ..."
+                        autocomplete="off"
+                        aria-label="Your message"
+                    >
+                    <button class="chat-send" id="chatSend" aria-label="Send message">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(-45deg)">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
 
     <script src="main.js"></script>
 </body>

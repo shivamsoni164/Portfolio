@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         // Clear after slide-out animation completes (350ms)
-        setTimeout(() => { messages.innerHTML = ''; }, 350);
+        setTimeout(() => { messages.innerHTML = ''; panel.classList.remove('has-messages'); }, 350);
     }
 
     ctaBtn.addEventListener('click', (e) => { e.preventDefault(); openChat(); });
@@ -62,6 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
     });
     sendBtn.addEventListener('click', sendMessage);
+
+    document.querySelectorAll('.chat-prompt').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            input.value = btn.textContent.trim();
+            sendMessage();
+        });
+    });
 
     function renderMarkdown(text) {
         return text
@@ -76,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function appendMessage(text, isUser) {
+        panel.classList.add('has-messages');
         const row    = document.createElement('div');
         row.className = `chat-message ${isUser ? 'chat-message--user' : 'chat-message--bot'}`;
         const bubble = document.createElement('div');
