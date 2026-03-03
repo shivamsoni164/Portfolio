@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     ctaBtn.addEventListener('click', (e) => { e.preventDefault(); openChat(); });
-    overlay.addEventListener('click', closeChat);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeChat(); });
     closeBtn.addEventListener('click', closeChat);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeChat(); });
 
