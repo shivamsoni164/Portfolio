@@ -299,8 +299,11 @@ img {
     font-weight: var(--font-weight-medium);
     line-height: 33px;
     letter-spacing: var(--letter-spacing-normal);
+    border: none;
     border-radius: 0;
+    cursor: pointer;
     transition: background-color 0.2s ease, border-radius 0.2s ease, padding 0.2s ease;
+    white-space: nowrap;
 }
 
 .cta-button:hover {
@@ -312,15 +315,23 @@ img {
 
 .cta-button:active {
     background-color: var(--color-grey-950);
+    border-radius: 10px;
+    padding: 12px;
 }
 
 .cta-button:disabled,
-.cta-button[aria-disabled="true"] {
+.cta-button.disabled {
     background-color: var(--color-grey-600);
     color: var(--color-grey-400);
-    pointer-events: none;
     border-radius: 10px;
     padding: 12px;
+    gap: 8px;
+    cursor: not-allowed;
+}
+
+.cta-button:disabled svg,
+.cta-button.disabled svg {
+    color: var(--color-grey-400);
 }
 
 .cta-button svg {
