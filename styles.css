@@ -1,67 +1,58 @@
 /* ==========================================================================
-   Design Tokens (from Figma variables)
+   Design Tokens
    ========================================================================== */
 
 :root {
     /* Colors */
-    --color-grey-50: #fafafa;
+    --color-grey-50:  #fafafa;
+    --color-grey-100: #f5f5f5;
     --color-grey-200: #e8e8e8;
     --color-grey-400: #a3a3a3;
     --color-grey-500: #737373;
     --color-grey-600: #525252;
     --color-grey-700: #404040;
     --color-grey-800: #262626;
+    --color-grey-900: #171717;
     --color-grey-950: #0a0a0a;
-
-    /* Project card placeholder */
     --color-project-placeholder: #c79999;
 
-    /* Typography - Font Families */
-    --font-primary: 'Playfair Display', 'Georgia', serif;
+    /* Font Families */
+    --font-primary:   'Playfair Display', 'Georgia', serif;
     --font-secondary: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
-    /* Typography - Font Sizes */
+    /* Font Sizes */
     --font-size-display-l: 72px;
-    --font-size-h2: 44px;
-    --font-size-h3: 36px;
-    --font-size-h5: 22px;
-    --font-size-h6: 18px;
-    --font-size-body-m: 16px;
+    --font-size-h2:        44px;
+    --font-size-h3:        36px;
+    --font-size-h5:        22px;
+    --font-size-h6:        18px;
+    --font-size-body-m:    16px;
+    --font-size-body-s:    14px;
+    --font-size-caption:   12px;
 
-    /* Typography - Font Weights */
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
+    /* Font Weights */
+    --font-weight-light:    300;
+    --font-weight-regular:  400;
+    --font-weight-medium:   500;
     --font-weight-semibold: 600;
 
-    /* Typography - Line Heights */
+    /* Line Heights */
     --line-height-display: 90px;
-    --line-height-tight: 62px;
-    --line-height-normal: 31px;
-    --line-height-loose: 22px;
+    --line-height-tight:   62px;
+    --line-height-normal:  31px;
+    --line-height-relaxed: 27px;
+    --line-height-loose:   22px;
 
-    /* Typography - Letter Spacing */
+    /* Letter Spacing */
     --letter-spacing-tighter: -3px;
-    --letter-spacing-tight: -2px;
-    --letter-spacing-normal: 0px;
+    --letter-spacing-tight:   -2px;
+    --letter-spacing-normal:   0px;
 
     /* Layout */
     --page-padding-x: 160px;
-    --section-gap: 60px;
-    --label-width: 259px;
-    --content-gap: 22px;
-
-    /* Additional colors */
-    --color-grey-100: #f5f5f5;
-    --color-grey-300: #d4d4d4;
-    --color-grey-900: #171717;
-
-    /* Additional font sizes */
-    --font-size-body-s: 14px;
-    --font-size-caption: 12px;
-
-    /* Additional line heights */
-    --line-height-relaxed: 27px;
+    --section-gap:     60px;
+    --label-width:    259px;
+    --content-gap:     22px;
 }
 
 /* ==========================================================================
@@ -118,7 +109,7 @@ img {
 .nav-bar {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     background: #ffffff;
     height: 80px;
     display: flex;
@@ -130,10 +121,10 @@ img {
     font-family: 'Lexend Deca', sans-serif;
     font-weight: 600;
     font-size: 19.6px;
-    color: var(--color-grey-950);
+    color: #0a0a0a;
     letter-spacing: -1px;
     line-height: 32.667px;
-    border: 4.083px solid var(--color-grey-950);
+    border: 4.083px solid #0a0a0a;
     width: 75px;
     height: 50px;
     padding: 2px 8px;
@@ -150,8 +141,8 @@ img {
 }
 
 .nav-logo:hover {
-    background-color: var(--color-grey-950);
-    color: var(--color-grey-50);
+    background-color: #0a0a0a;
+    color: #fafafa;
 }
 
 .nav-logo:hover .nav-logo-default {
@@ -187,7 +178,6 @@ img {
     font-size: var(--font-size-h5);
     font-weight: var(--font-weight-medium);
     line-height: var(--line-height-normal);
-    letter-spacing: var(--letter-spacing-normal);
     color: var(--color-grey-950);
 }
 
@@ -206,6 +196,10 @@ img {
     gap: 30px;
     padding-top: 150px;
     padding-bottom: 150px;
+}
+
+.hero-heading-row {
+    height: 298px;
 }
 
 .hero-label-spacer {
@@ -244,7 +238,7 @@ img {
     font-weight: var(--font-weight-light);
     line-height: var(--line-height-display);
     letter-spacing: var(--letter-spacing-tighter);
-    color: var(--color-grey-600);
+    color: var(--color-grey-800);
 }
 
 .hero-ampersand {
@@ -262,7 +256,7 @@ img {
     font-weight: var(--font-weight-medium);
     line-height: 51px;
     letter-spacing: var(--letter-spacing-normal);
-    color: var(--color-grey-600);
+    color: var(--color-grey-700);
 }
 
 /* ==========================================================================
@@ -274,7 +268,10 @@ img {
     font-size: var(--font-size-h5);
     font-weight: var(--font-weight-regular);
     line-height: 40px;
-    letter-spacing: var(--letter-spacing-normal);
+    color: var(--color-grey-800);
+}
+
+.process .body-text {
     color: var(--color-grey-700);
 }
 
@@ -298,40 +295,30 @@ img {
     font-size: var(--font-size-h6);
     font-weight: var(--font-weight-medium);
     line-height: 33px;
-    letter-spacing: var(--letter-spacing-normal);
     border: none;
-    border-radius: 0;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.2s ease, border-radius 0.2s ease, padding 0.2s ease;
     white-space: nowrap;
+    transition: background-color 0.2s ease, padding 0.2s ease;
 }
 
 .cta-button:hover {
     background-color: var(--color-grey-950);
-    border-radius: 10px;
     padding: 12px;
     gap: 8px;
 }
 
 .cta-button:active {
     background-color: var(--color-grey-950);
-    border-radius: 10px;
-    padding: 12px;
 }
 
 .cta-button:disabled,
 .cta-button.disabled {
     background-color: var(--color-grey-600);
     color: var(--color-grey-400);
-    border-radius: 10px;
     padding: 12px;
     gap: 8px;
     cursor: not-allowed;
-}
-
-.cta-button:disabled svg,
-.cta-button.disabled svg {
-    color: var(--color-grey-400);
 }
 
 .cta-button svg {
@@ -346,9 +333,9 @@ img {
 
 .divider {
     padding: 0 var(--page-padding-x);
+    height: 40px;
     display: flex;
     align-items: center;
-    height: 40px;
 }
 
 .divider svg {
@@ -371,35 +358,25 @@ img {
     flex-direction: column;
     gap: 10px;
     width: 362px;
-    transition: transform 0.2s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
 }
 
 .project-thumbnail {
     width: 100%;
     height: 204px;
     background-color: var(--color-project-placeholder);
-    transition: opacity 0.2s ease;
-}
-
-.project-card:hover .project-thumbnail {
-    opacity: 0.9;
 }
 
 .project-info {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 }
 
 .project-title {
     font-family: var(--font-secondary);
     font-size: var(--font-size-h6);
-    font-weight: var(--font-weight-semibold);
+    font-weight: 700;
     line-height: var(--line-height-normal);
-    letter-spacing: var(--letter-spacing-normal);
     color: var(--color-grey-800);
 }
 
@@ -415,96 +392,8 @@ img {
    My Process Section
    ========================================================================== */
 
-.process {
+.process .section-row {
     min-height: 200px;
-}
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-
-@media (max-width: 1200px) {
-    :root {
-        --page-padding-x: 80px;
-    }
-}
-
-@media (max-width: 960px) {
-    :root {
-        --page-padding-x: 40px;
-        --font-size-display-l: 52px;
-        --line-height-display: 66px;
-        --font-size-h3: 28px;
-    }
-
-    .section-row {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .section-label {
-        width: auto;
-    }
-
-    .hero-label-spacer {
-        display: none;
-    }
-
-    .hero-photo-container {
-        width: 180px;
-        height: 200px;
-        padding: 10px 8px;
-        align-self: center;
-    }
-
-    .hero {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-    }
-
-    .project-card {
-        width: 100%;
-    }
-}
-
-@media (max-width: 640px) {
-    .nav-bar {
-        padding: 10px 24px;
-    }
-
-    :root {
-        --page-padding-x: 24px;
-        --font-size-display-l: 40px;
-        --line-height-display: 52px;
-        --font-size-h2: 32px;
-        --font-size-h3: 24px;
-        --font-size-h5: 18px;
-    }
-
-    .hero-photo-container {
-        width: 120px;
-        height: 140px;
-        padding: 8px 6px;
-        align-self: center;
-    }
-
-    .hero {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .body-text {
-        line-height: 32px;
-    }
 }
 
 /* ==========================================================================
@@ -533,10 +422,10 @@ img {
     height: calc(100vh - 40px);
     background: #ffffff;
     border-radius: 20px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
+    overflow: hidden;
     transform: translateX(calc(100% + 20px));
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -560,11 +449,12 @@ img {
     font-family: var(--font-primary);
     font-size: var(--font-size-h5);
     font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-normal);
-    color: #000;
+    color: #000000;
 }
 
 .chat-close {
+    width: 38px;
+    height: 38px;
     background: none;
     border: none;
     cursor: pointer;
@@ -572,8 +462,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    padding: 0;
     transition: color 0.2s ease;
 }
 
@@ -594,8 +483,7 @@ img {
     min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 40px;
+    justify-content: space-between;
     padding: 20px 0;
     overflow-y: auto;
 }
@@ -607,8 +495,6 @@ img {
     gap: 10px;
     padding: 0 20px;
     text-align: center;
-    max-width: 305px;
-    margin: 0 auto;
 }
 
 .chat-welcome-icon {
@@ -620,35 +506,32 @@ img {
 .chat-welcome-text {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     align-items: center;
+    gap: 8px;
 }
 
 .chat-welcome-title {
     font-family: var(--font-primary);
     font-size: var(--font-size-h5);
     font-weight: var(--font-weight-medium);
-    line-height: var(--line-height-normal);
     color: var(--color-grey-900);
 }
 
 .chat-welcome-description {
     font-family: var(--font-secondary);
     font-size: var(--font-size-body-s);
-    font-weight: var(--font-weight-regular);
     line-height: var(--line-height-loose);
     color: var(--color-grey-700);
+    max-width: 305px;
 }
 
 .chat-welcome-powered {
     font-family: var(--font-secondary);
     font-size: var(--font-size-caption);
-    font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-loose);
     color: var(--color-grey-400);
 }
 
-/* Suggested prompts */
+/* Prompt pills */
 .chat-prompts {
     display: flex;
     flex-direction: column;
@@ -660,24 +543,22 @@ img {
     background: var(--color-grey-800);
     border: 1px solid #d4d4d4;
     border-radius: 10px;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
     font-family: var(--font-secondary);
     font-size: var(--font-size-h6);
-    font-weight: var(--font-weight-regular);
-    line-height: 30px;
     color: var(--color-grey-50);
     cursor: pointer;
     text-align: left;
     width: 100%;
-    transition: background 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 .chat-prompt:hover {
     background: var(--color-grey-950);
 }
 
-/* Messages (hidden until first message is sent) */
+/* Messages (shown when panel has .has-messages) */
 .chat-messages {
     display: none;
     flex: 1;
@@ -698,26 +579,7 @@ img {
     display: flex;
 }
 
-/* Input background: lighter in default state, standard grey in conversation */
-.chat-panel.has-messages .chat-input {
-    background: var(--color-grey-200);
-}
-
-.chat-panel.has-messages .chat-send {
-    background: var(--color-grey-200);
-}
-
-.chat-panel.has-messages .chat-send:hover {
-    background: var(--color-grey-300);
-    color: var(--color-grey-800);
-}
-
-.chat-panel.has-messages .chat-send:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* Messages */
+/* Message rows */
 .chat-message {
     display: flex;
     width: 100%;
@@ -731,32 +593,31 @@ img {
     justify-content: flex-end;
 }
 
+/* Bubbles */
 .chat-bubble {
     max-width: 422px;
     padding: 20px;
     font-family: var(--font-secondary);
-    font-size: var(--font-size-h6);
-    line-height: 30px;
-    letter-spacing: var(--letter-spacing-normal);
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
-    border: 1px solid transparent;
+    font-size: var(--font-size-body-m);
+    line-height: var(--line-height-loose);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .chat-message--bot .chat-bubble {
     background: #ffffff;
     color: var(--color-grey-900);
-    border-color: #f5f5f5;
+    border: 1px solid var(--color-grey-100);
     border-radius: 0 10px 10px 10px;
 }
 
 .chat-message--user .chat-bubble {
     background: var(--color-grey-800);
     color: var(--color-grey-50);
-    border-color: #d4d4d4;
+    border: 1px solid #d4d4d4;
     border-radius: 10px 10px 0 10px;
 }
 
-/* Typing indicator */
+/* Typing indicator (shares .chat-bubble) */
 .chat-typing {
     display: flex;
     align-items: center;
@@ -778,8 +639,8 @@ img {
 .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
 
 @keyframes typing-bounce {
-    0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-    30% { transform: translateY(-7px); opacity: 1; }
+    0%, 60%, 100% { transform: translateY(0);    opacity: 0.5; }
+    30%            { transform: translateY(-7px); opacity: 1;   }
 }
 
 /* Footer / Input */
@@ -801,12 +662,11 @@ img {
     background: var(--color-grey-100);
     border: none;
     outline: none;
-    padding: 6px 10px;
     border-radius: 10px;
+    padding: 6px 10px;
     font-family: var(--font-secondary);
     font-size: var(--font-size-body-m);
     color: var(--color-grey-950);
-    letter-spacing: var(--letter-spacing-normal);
 }
 
 .chat-input::placeholder {
@@ -825,12 +685,12 @@ img {
     align-items: center;
     justify-content: center;
     color: var(--color-grey-800);
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .chat-send:hover {
-    background: var(--color-grey-300);
-    color: var(--color-grey-800);
+    background: var(--color-grey-800);
+    color: var(--color-grey-50);
 }
 
 .chat-send:disabled {
@@ -838,19 +698,122 @@ img {
     cursor: not-allowed;
 }
 
-/* Chat responsive — tablet (640px–960px) */
-@media (max-width: 960px) {
-    .chat-panel {
-        width: 400px;
-    }
+/* ==========================================================================
+   Animations (driven by main.js IntersectionObserver)
+   ========================================================================== */
 
-    .chat-bubble {
-        max-width: 80%;
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive — 1200px
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    :root {
+        --page-padding-x: 80px;
     }
 }
 
-/* Chat responsive — mobile (<640px) */
+/* ==========================================================================
+   Responsive — 960px
+   ========================================================================== */
+
+@media (max-width: 960px) {
+    :root {
+        --page-padding-x:       40px;
+        --font-size-display-l:  52px;
+        --line-height-display:  66px;
+        --font-size-h3:         28px;
+    }
+
+    .section-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .section-label {
+        width: auto;
+    }
+
+    .hero-heading-row {
+        height: auto;
+    }
+
+    .hero-label-spacer {
+        display: none;
+    }
+
+    .hero-photo-container {
+        width: 180px;
+        height: 200px;
+        align-self: center;
+    }
+
+    .hero {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .project-card {
+        width: auto;
+    }
+
+    .chat-panel {
+        width: 400px;
+    }
+}
+
+/* ==========================================================================
+   Responsive — 640px
+   ========================================================================== */
+
 @media (max-width: 640px) {
+    :root {
+        --page-padding-x:      24px;
+        --font-size-display-l: 40px;
+        --line-height-display: 52px;
+        --font-size-h2:        32px;
+        --font-size-h3:        24px;
+        --font-size-h5:        18px;
+    }
+
+    .nav-bar {
+        padding: 10px 24px;
+    }
+
+    .hero-photo-container {
+        width: 120px;
+        height: 140px;
+        align-self: center;
+    }
+
+    .hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .body-text {
+        line-height: 32px;
+    }
+
     .chat-overlay.active {
         padding: 0;
         align-items: stretch;
@@ -878,26 +841,21 @@ img {
         max-width: 85%;
         padding: 12px 14px;
         font-size: 15px;
-        line-height: 22px;
-    }
-
-    .chat-welcome {
-        gap: 24px;
-        padding: 16px 0;
+        line-height: var(--line-height-loose);
     }
 
     .chat-prompts {
         padding: 0 16px;
     }
 
-    .chat-welcome-description {
-        font-size: 13px;
-    }
-
     .chat-prompt {
         font-size: 15px;
-        line-height: 24px;
         padding: 10px 16px;
+    }
+
+    .chat-welcome {
+        justify-content: center;
+        gap: 40px;
     }
 
     .chat-footer {
@@ -908,15 +866,15 @@ img {
     }
 
     .chat-input-row {
-        padding: 10px 16px;
         height: auto;
         min-height: 62px;
+        padding: 10px 16px;
     }
 
     .chat-input {
-        padding: 10px 14px;
         height: auto;
         min-height: 42px;
+        padding: 10px 14px;
         font-size: 16px; /* prevents iOS Safari auto-zoom */
     }
 
@@ -926,19 +884,4 @@ img {
         width: 44px;
         height: 44px;
     }
-}
-
-/* ==========================================================================
-   Animations
-   ========================================================================== */
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
