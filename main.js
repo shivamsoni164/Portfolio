@@ -21,6 +21,36 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // ── Smooth scroll for nav links ────────────────────────────────────────
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.getElementById(href.slice(1));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+
+    // Update active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                const activeLink = document.querySelector('.nav-link[href="#' + entry.target.id + '"]');
+                if (activeLink) activeLink.classList.add('active');
+            }
+        });
+    }, { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' });
+
+    sections.forEach(section => navObserver.observe(section));
+
     // ── AskShivam chat ─────────────────────────────────────────────────────
     const STACK_AI_URL = 'https://api.stack-ai.com/inference/v0/run/e0d29d77-0008-4f61-9bec-1b3b45ec324a/694d324d82550e8c1e757e13';
     const STACK_AI_KEY = 'd96010b6-4e98-4fd1-bd6d-59c8f946619e';

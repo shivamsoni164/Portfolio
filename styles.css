@@ -117,40 +117,54 @@ img {
     padding: 10px 40px;
 }
 
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .nav-logo {
     font-family: 'Lexend Deca', sans-serif;
     font-weight: 600;
-    font-size: 19.6px;
+    font-size: 26.13px;
     color: #0a0a0a;
-    letter-spacing: -1px;
     line-height: 32.667px;
     border: 4.083px solid #0a0a0a;
     width: 75px;
     height: 50px;
-    padding: 2px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+    flex-shrink: 0;
 }
 
-.nav-logo-flip {
-    display: none;
-    font-size: 14px;
+.nav-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-.nav-logo:hover {
-    background-color: #0a0a0a;
-    color: #fafafa;
+.nav-link {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h5);
+    line-height: var(--line-height-normal);
+    letter-spacing: 0;
+    color: var(--color-grey-400);
+    text-decoration: none;
+    padding: 10px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
-.nav-logo:hover .nav-logo-default {
-    display: none;
+.nav-link:hover {
+    color: var(--color-grey-500);
 }
 
-.nav-logo:hover .nav-logo-flip {
-    display: block;
+.nav-link.active {
+    color: var(--color-grey-700);
+    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -735,6 +749,15 @@ img {
         --font-size-h3:         28px;
     }
 
+    .nav-links {
+        gap: 5px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 8px;
+    }
+
     .section-row {
         flex-direction: column;
         gap: 16px;
@@ -793,6 +816,23 @@ img {
 
     .nav-bar {
         padding: 10px 24px;
+        height: auto;
+        min-height: 60px;
+    }
+
+    .nav-inner {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 2px;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 6px;
     }
 
     .hero-photo-container {
