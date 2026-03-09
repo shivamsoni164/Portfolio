@@ -313,13 +313,11 @@ img {
     border-radius: 10px;
     cursor: pointer;
     white-space: nowrap;
-    transition: background-color 0.2s ease, padding 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 .cta-button:hover {
     background-color: var(--color-grey-950);
-    padding: 12px;
-    gap: 8px;
 }
 
 .cta-button:active {
@@ -330,7 +328,7 @@ img {
 .cta-button.disabled {
     background-color: var(--color-grey-600);
     color: var(--color-grey-400);
-    padding: 12px;
+    padding: 5px 12px;
     gap: 8px;
     cursor: not-allowed;
 }
