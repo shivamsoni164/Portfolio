@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         row.id = 'typingIndicator';
         const bubble = document.createElement('div');
         bubble.className = 'chat-bubble chat-typing';
-        bubble.innerHTML = '<span></span><span></span><span></span>';
+        bubble.innerHTML = '<div class="chat-typing-dots"><span></span><span></span><span></span></div>';
         row.appendChild(bubble);
         messages.appendChild(row);
         messages.scrollTop = messages.scrollHeight;
@@ -124,11 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show "still thinking" hint after 8s to reassure the user
         const stillThinkingTimer = setTimeout(() => {
             const bubble = typing.querySelector('.chat-bubble');
-            if (bubble) bubble.title = 'Still thinking…';
+            if (!bubble) return;
             const hint = document.createElement('p');
             hint.className = 'chat-still-thinking';
             hint.textContent = 'Still thinking…';
-            typing.appendChild(hint);
+            bubble.appendChild(hint);
             messages.scrollTop = messages.scrollHeight;
         }, 4000);
 

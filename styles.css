@@ -692,10 +692,17 @@ img {
 /* Typing indicator (shares .chat-bubble) */
 .chat-typing {
     display: flex;
-    align-items: center;
-    gap: 6px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
     padding: 16px 18px;
     min-height: 52px;
+}
+
+.chat-typing-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .chat-typing span {
