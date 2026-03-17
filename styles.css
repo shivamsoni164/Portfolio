@@ -127,16 +127,16 @@ img {
 .nav-logo {
     font-family: 'Lexend Deca', sans-serif;
     font-weight: 600;
-    font-size: 26.13px;
+    font-size: 22.65px;
     color: #0a0a0a;
-    line-height: 32.667px;
-    border: 4.083px solid #0a0a0a;
-    width: 75px;
-    height: 50px;
+    line-height: 28.311px;
+    border: 3.539px solid #0a0a0a;
+    width: 65px;
+    height: 40px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 2px 8px;
+    padding: 1.416px 7.078px;
     text-decoration: none;
     flex-shrink: 0;
 }
@@ -149,8 +149,8 @@ img {
 
 .nav-link {
     font-family: var(--font-secondary);
-    font-size: var(--font-size-h5);
-    line-height: var(--line-height-normal);
+    font-size: var(--font-size-h6);
+    line-height: 33px;
     letter-spacing: 0;
     color: var(--color-grey-400);
     text-decoration: none;
