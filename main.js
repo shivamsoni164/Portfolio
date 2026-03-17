@@ -121,6 +121,21 @@ document.addEventListener('DOMContentLoaded', () => {
         appendMessage(text, true);
         const typing = showTyping();
 
+        // Show "still thinking" hint after 8s to reassure the user
+        const stillThinkingTimer = setTimeout(() => {
+            const bubble = typing.querySelector('.chat-bubble');
+            if (bubble) bubble.title = 'Still thinking…';
+            const hint = document.createElement('p');
+            hint.className = 'chat-still-thinking';
+            hint.textContent = 'Still thinking…';
+            typing.appendChild(hint);
+            messages.scrollTop = messages.scrollHeight;
+        }, 8000);
+
+        // Abort the request after 30s
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
+
         try {
             const res = await fetch(STACK_AI_URL, {
                 method: 'POST',
@@ -128,10 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Authorization': `Bearer ${STACK_AI_KEY}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ 'in-0': text, 'user_id': sessionId })
+                body: JSON.stringify({ 'in-0': text, 'user_id': sessionId }),
+                signal: controller.signal
             });
 
             const data = await res.json();
+            clearTimeout(stillThinkingTimer);
+            clearTimeout(timeoutId);
             typing.remove();
 
             // Stack AI returns the answer under outputs['out-0']
@@ -141,9 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
                        || 'Sorry, I didn\'t get a response. Try again.';
             appendMessage(reply, false);
 
-        } catch {
+        } catch (err) {
+            clearTimeout(stillThinkingTimer);
+            clearTimeout(timeoutId);
             typing.remove();
-            appendMessage('Something went wrong. Please try again.', false);
+            if (err.name === 'AbortError') {
+                appendMessage('The request timed out. Stack AI may be slow to start — please try again in a moment.', false);
+            } else {
+                appendMessage('Something went wrong. Please try again.', false);
+            }
         } finally {
             sendBtn.disabled = false;
             input.focus();

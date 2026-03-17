@@ -715,6 +715,13 @@ img {
     30%            { transform: translateY(-7px); opacity: 1;   }
 }
 
+.chat-still-thinking {
+    font-size: 11px;
+    opacity: 0.5;
+    margin: 6px 0 0;
+    font-style: italic;
+}
+
 /* Footer / Input */
 .chat-footer {
     flex-shrink: 0;
