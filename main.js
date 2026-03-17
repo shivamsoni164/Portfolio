@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hint.textContent = 'Still thinking…';
             typing.appendChild(hint);
             messages.scrollTop = messages.scrollHeight;
-        }, 8000);
+        }, 4000);
 
         // Abort the request after 30s
         const controller = new AbortController();
