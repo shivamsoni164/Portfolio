@@ -785,6 +785,87 @@ img {
 }
 
 /* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+    background-color: var(--color-grey-900);
+    padding: 50px var(--page-padding-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: var(--color-grey-50);
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 323px;
+}
+
+.footer-logo {
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--color-grey-50);
+    border: 2.5px solid var(--color-grey-50);
+    width: 45px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-branding {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-relaxed);
+}
+
+.footer-description {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h6);
+    line-height: 30px;
+    color: var(--color-grey-50);
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 122px;
+}
+
+.footer-heading {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-relaxed);
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-link {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-h6);
+    line-height: 33px;
+    color: var(--color-grey-50);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-grey-400);
+}
+
+/* ==========================================================================
    Responsive — 1200px
    ========================================================================== */
 
