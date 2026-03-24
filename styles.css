@@ -111,7 +111,7 @@ img {
     top: 0;
     z-index: 100;
     background: #ffffff;
-    height: 80px;
+    height: 60px;
     display: flex;
     align-items: center;
     padding: 10px 40px;
@@ -209,8 +209,8 @@ img {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .hero-heading-row {
@@ -236,6 +236,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 .hero-content {
@@ -379,6 +380,14 @@ img {
     background-color: var(--color-project-placeholder);
 }
 
+.project-thumbnail--kickfurther {
+    background-color: #b1f8ff;
+}
+
+.project-thumbnail--sahayya {
+    background-color: #353e57;
+}
+
 .project-info {
     display: flex;
     flex-direction: column;
@@ -386,19 +395,26 @@ img {
 }
 
 .project-title {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: var(--font-size-h6);
-    font-weight: 700;
+    font-weight: var(--font-weight-semibold);
     line-height: var(--line-height-normal);
     color: var(--color-grey-800);
 }
 
 .project-description {
-    font-family: var(--font-primary);
-    font-size: var(--font-size-body-m);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-body-s);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-loose);
-    color: var(--color-grey-500);
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: var(--color-grey-600);
+}
+
+.project-read-more {
+    color: #e72300;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* ==========================================================================
@@ -456,16 +472,6 @@ img {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-}
-
-/* ==========================================================================
-   AI Playground Section
-   ========================================================================== */
-
-.playground-content {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
 }
 
 /* ==========================================================================
@@ -936,8 +942,8 @@ img {
     }
 
     .hero {
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .projects-grid {
@@ -1000,8 +1006,8 @@ img {
     }
 
     .hero {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 
     .projects-grid {
