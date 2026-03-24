@@ -363,15 +363,17 @@ img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: 373px 373px;
+    grid-template-columns: repeat(2, 1fr);
     gap: 50px 20px;
+    flex: 1;
+    min-width: 0;
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 373px;
+    min-width: 0;
 }
 
 .project-thumbnail {
@@ -461,9 +463,16 @@ img {
 }
 
 .project-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
     color: #e72300;
     text-decoration: underline;
     text-underline-offset: 2px;
+}
+
+.project-read-more svg {
+    flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -993,15 +1002,6 @@ img {
     .hero {
         padding-top: 40px;
         padding-bottom: 40px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-    }
-
-    .project-card {
-        width: auto;
     }
 
     .process-image-container {
