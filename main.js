@@ -1,3 +1,5 @@
+window.location.replace('https://drive.google.com/file/d/1-xFMMH52Ivyz7RnNvtIQErHs4_0OEQBn/view?usp=sharing');
+
 // Portfolio — Shivam Soni
 // Minimal JS for subtle entrance animations + AskShivam chat
 
