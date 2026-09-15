@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahayya — Shivam Soni</title>
+  <meta name="description" content="Case study: designing an end-to-end loan origination system for India's self-employed borrowers — reducing loan processing time from 10 days to 4." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sahayya — Reducing loan processing time from 10 days to 4" />
+  <meta property="og:description" content="An end-to-end loan origination system for India's self-employed borrowers. A UX case study by Shivam Soni." />
+  <meta property="og:image" content="assets/img/sahayya/persona-suresh.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== TOP NAV ===================== -->
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Shivam Soni</span>
+        <span class="brand__role">Product Designer</span>
+      </a>
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html">Work</a>
+        <a href="#">About</a>
+        <a href="#">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN LAYOUT ===================== -->
+  <div class="layout">
+
+    <!-- ---- Sticky sidebar ---- -->
+    <aside class="sidebar">
+      <a class="sidebar__back" href="index.html">&larr; Back</a>
+      <nav class="section-nav" aria-label="Sections">
+        <a href="#overview" class="section-nav__link">Overview</a>
+        <a href="#introduction" class="section-nav__link">Introduction</a>
+        <a href="#customer" class="section-nav__link">The Customer</a>
+        <a href="#research" class="section-nav__link">The Research</a>
+        <a href="#problems" class="section-nav__link">The Problems</a>
+        <a href="#solution-01" class="section-nav__link">Solution 01</a>
+        <a href="#solution-02" class="section-nav__link">Solution 02</a>
+        <a href="#solution-03" class="section-nav__link">Solution 03</a>
+      </nav>
+    </aside>
+
+    <!-- ---- Content column ---- -->
+    <main class="content">
+
+      <!-- ===== HERO / OVERVIEW ===== -->
+      <section id="overview" class="section hero">
+        <p class="eyebrow">Enterprise app &bull; UX Design &bull; Fintech</p>
+        <h1 class="hero__title">How did I reduce loan processing time from 10 days to 4?</h1>
+        <p class="hero__subtitle">Designing an end-to-end loan origination system for India&rsquo;s self-employed borrowers.</p>
+
+        <figure class="asset-slot hero__image" data-caption="Sahayya app — hero screens">
+          <img src="assets/img/sahayya/hero.png" alt="Sahayya app — two iPhone screens on a lavender field" />
+        </figure>
+
+        <dl class="meta">
+          <div class="meta__col">
+            <dt>Role</dt>
+            <dd>Lead UX Designer</dd>
+          </div>
+          <div class="meta__col">
+            <dt>Timeline</dt>
+            <dd>December 2022 &ndash; May 2024</dd>
+          </div>
+          <div class="meta__col">
+            <dt>Team</dt>
+            <dd>1 PM<br />2 UX Designer<br />3 UI Designer</dd>
+          </div>
+          <div class="meta__col">
+            <dt>Skills</dt>
+            <dd>User Research<br />UX Design<br />Service Design</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ===== INTRODUCTION ===== -->
+      <section id="introduction" class="section">
+        <p class="eyebrow">Introduction</p>
+        <h2 class="section__title">A lender built for India&rsquo;s self-employed group.</h2>
+        <p class="body">Sahayya is a Bangalore-based home-loan company lending to India&rsquo;s self-employed, borrowers whose income is hard to verify and who most banks turn away. It works with major banks like HDFC and Axis, underwriting home loans on their behalf.</p>
+      </section>
+
+      <!-- ===== THE CUSTOMER ===== -->
+      <section id="customer" class="section">
+        <p class="eyebrow">The Customer</p>
+
+        <figure class="asset-slot" data-caption="Meet Suresh — the borrower">
+          <img src="assets/img/sahayya/persona-suresh.png" alt="Meet Suresh — self-employed, steady, and hard to score. A persona card for Sahayya's borrower." />
+        </figure>
+
+        <h2 class="section__title">The borrower &mdash; a credit score can&rsquo;t see.</h2>
+        <p class="body">Sahayya lends to self-employed borrowers in tier 2&ndash;3 India who need financing quickly to build a house or grow a business. Their income is hard to verify and their credit score rarely reflects how they actually earn, so most banks turn them away. Reaching them means meeting them where they are, on their terms.</p>
+      </section>
+
+      <!-- ===== THE RESEARCH ===== -->
+      <section id="research" class="section">
+        <p class="eyebrow">The Research</p>
+
+        <figure class="asset-slot diagram" data-caption="Sahayya — typical loan journey (service blueprint)">
+          <img src="assets/img/sahayya/research-journey.png" alt="Sahayya typical loan journey — service blueprint diagram" />
+        </figure>
+
+        <h2 class="section__title">The process on paper, and the process in the field.</h2>
+        <p class="body">To design the system, I first had to see how the loan process really ran. I started with a full walkthrough, on paper it was a clean pipeline from lead to disbursal, but underneath it was a web of dependencies: credit-check APIs that failed with no retry, bank-statement analysis that only read PDFs, and a risk check that could reopen a file even after the loan was paid out.</p>
+        <p class="body">The bigger lesson came in the field. I shadowed the Sales Head, as he visited a restaurant owner applying for a loan, and the tidy process diagram fell apart in front of me. He never opened a form. He talked the owner through his sales, seasons and expenses while reading the room to verify the answers, did his sums on paper, and judged the risk on instinct. There was no network, the questions jumped around as the conversation moved, and much of what the loan needed simply wasn&rsquo;t there on the spot.</p>
+      </section>
+
+      <!-- ===== THE PROBLEMS ===== -->
+      <section id="problems" class="section">
+        <p class="eyebrow">The Problems</p>
+        <h2 class="section__title">Three questions the design had to answer.</h2>
+        <p class="body">The research made the real problem clear. It wasn&rsquo;t speed. A single application held 1,200+ hand-keyed fields, captured offline and out of order across a 13-stage pipeline that leaned on outside services for credit checks, OCR and bank data. One late error could send the file back to the start, and one downed service could stall it completely.</p>
+
+        <ul class="hmw">
+          <li class="hmw__item"><strong>How might we</strong> stop errors at the source when 1,200+ fields are entered by hand?</li>
+          <li class="hmw__item"><strong>How might we</strong> keep a loan moving when a third-party service goes down, so one failed API doesn&rsquo;t stall the whole process?</li>
+          <li class="hmw__item"><strong>How might we</strong> keep 13 interdependent stages consistent and compliant while several people work the same file?</li>
+        </ul>
+      </section>
+
+      <!-- ===== SOLUTION 01 ===== -->
+      <section id="solution-01" class="section">
+        <p class="eyebrow">Solution 01</p>
+        <h2 class="section__title">Stopping bad data at the source.</h2>
+        <p class="body">The goal was simple: let the agent confirm data, not type it.</p>
+        <p class="body"><strong>Verified data, pulled from the document.</strong> We integrated an external service that returns authentic customer details from a scanned IDs. The agent uploads a document, say a driving licence or passport, the service reads its type, and it sends back the record it holds: name, photo, date of birth and address. The agent checks it instead of keying it in, so the data is verified at the source rather than typed by hand.</p>
+        <p class="body"><strong>Defaults fill the rest.</strong> Fields that can be inferred fill themselves. A pincode brings in its city and state, the agent&rsquo;s branch and manager are already set, and the most common product is pre-selected. Every field that fills itself is one less chance to fumble a digit.</p>
+      </section>
+
+      <!-- ===== SOLUTION 02 ===== -->
+      <section id="solution-02" class="section">
+        <p class="eyebrow">Solution 02</p>
+        <h2 class="section__title">Keeping thirteen stages in sync.</h2>
+
+        <figure class="asset-slot diagram diagram--matrix" data-caption="Stage dependency matrix — 13 × 13, low → high impact">
+          <img src="assets/img/sahayya/dependency-matrix.png" alt="Stage dependency matrix showing how each stage forces others to reopen" />
+        </figure>
+
+        <p class="body"><strong>The 13 stages weren&rsquo;t a checklist; they were a web.</strong> Correcting a KYC detail in the first stage could quietly invalidate a credit decision three stages later, and with several people touching a single file, no one could keep track of all those dependencies in their heads.</p>
+
+        <figure class="asset-slot diagram diagram--wide" data-caption="The 91 reopen rules — status vs. stage">
+          <img src="assets/img/sahayya/rules-table.png" alt="Table mapping every stage against every status with reopen rules" />
+        </figure>
+
+        <p class="body">So I mapped every stage against every status, 13 by 7, and wrote the rule for each one: when this changes, here is what has to reopen. That came to 91 rules, written one by one. Once they were in the system, it did the remembering. When a change triggered a rule, the affected stage reopened automatically, logged the reason, and notified its owner. Compliance stopped depending on anyone&rsquo;s memory and became part of how the system worked.</p>
+      </section>
+
+      <!-- ===== SOLUTION 03 ===== -->
+      <section id="solution-03" class="section">
+        <p class="eyebrow">Solution 03</p>
+        <h2 class="section__title">Keeping loans moving when a service goes down.</h2>
+        <p class="body">Some data comes from outside services, like the credit score pulled in stage two, and those services go down. Blocking the whole loan for something outside Sahayya&rsquo;s control wasn&rsquo;t acceptable, but neither was letting a loan reach disbursement with data missing. So we graded the checks by what was at stake.</p>
+
+        <!-- Asset checks UI -->
+        <figure class="asset-slot" data-caption="Asset / Document checks — Aadhaar verification">
+          <img src="assets/img/sahayya/asset-checks.png" alt="Asset and document checks screen showing Aadhaar verification: field, logged-in value, API value and new value columns." />
+        </figure>
+        <p class="caption">Soft check &mdash; the user marks it here and the application can move ahead.</p>
+
+        <p class="body"><strong>Soft checks keep the work moving.</strong> Inside a stage, an agent can complete every step even if an outside value hasn&rsquo;t come back yet. To mark the stage as done, the system looks for that value; if it isn&rsquo;t there, the agent records why, marks it as not available, and moves on to the next stage. A downed service slows one field, not the whole file.</p>
+
+        <!-- SQL error dialog -->
+        <figure class="asset-slot error-slot" data-caption="SQL exception — error details">
+          <img src="assets/img/sahayya/sql-error.png" alt="An SQL exception error dialog with error details." />
+        </figure>
+
+        <p class="body"><strong>A hard gate before disbursement.</strong> The final step is the exception. Before a loan can be marked ready for disbursement, every required value has to be present, with no bypass. Missing data can be deferred along the way, but never skipped.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__credit">Designed + Coded with <span class="heart">&hearts;</span> by Shivam &amp; Claude</p>
+      <nav class="site-footer__links" aria-label="Social">
+        <a href="#">LinkedIn</a>
+        <a href="#">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

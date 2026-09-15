@@ -1,228 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivam Soni — UX Designer</title>
-    <meta name="description" content="I design at the intersection of human behaviour and complex systems. UX Designer with 3+ years in enterprise fintech.">
-    <meta name="author" content="Shivam Soni">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Shivam Soni — UX Designer">
-    <meta property="og:description" content="I design at the intersection of human behaviour and complex systems.">
-    <meta property="og:type" content="website">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@600&family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivam Soni — Product Designer</title>
+  <meta name="description" content="Shivam Soni — product & HCI researcher who loves working with complex systems. Selected UX case studies: Sahayya and Kickfurther." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Shivam Soni — Product Designer" />
+  <meta property="og:description" content="Product & HCI researcher who loves working with complex systems. Selected UX case studies." />
+  <meta property="og:image" content="assets/img/kickfurther/hero.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-    <nav class="nav-bar">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">SS</a>
-            <div class="nav-links">
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#my-process" class="nav-link">My Process</a>
-            </div>
-        </div>
-    </nav>
-    <main class="page">
 
-        <!-- Hero Section -->
-        <section class="section hero">
-            <div class="section-row hero-heading-row">
-                <div class="hero-photo-container">
-                    <img src="assets/shivam.jpg" alt="Shivam Soni" class="hero-photo">
-                </div>
-                <div class="hero-content">
-                    <h1 class="hero-title">Hey, I'm Shivam</h1>
-                    <span class="hero-ampersand">&amp;</span>
-                    <p class="hero-tagline">I design at the intersection of human behaviour and complex systems.</p>
-                </div>
-            </div>
+  <!-- ===================== TOP NAV ===================== -->
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Shivam Soni</span>
+        <span class="brand__role">Product Designer</span>
+      </a>
+      <nav class="site-nav__links" aria-label="Primary">
+        <a href="index.html" class="is-current" aria-current="page">Work</a>
+        <a href="#">About</a>
+        <a href="#">Resume</a>
+      </nav>
+    </div>
+  </header>
 
-            <div class="section-row">
-                <div class="section-label hero-label-spacer" aria-hidden="true"></div>
-                <div class="section-content">
-                    <p class="body-text">I design thoughtful, user-centered digital products for complex applications and AI-powered tools. I enjoy messy, real-world problem spaces where translating research into clarity and scalability isn't optional — it's the work.</p>
-                </div>
-            </div>
+  <!-- ===================== HOME ===================== -->
+  <div class="home-layout">
+    <div class="home-rail" aria-hidden="true"></div>
 
-            <div class="section-row">
-                <div class="section-label hero-label-spacer" aria-hidden="true"></div>
-                <div class="cta-wrapper">
-                    <a href="#" class="cta-button" aria-label="Ask me anything about my work">
-                        <span>Ask me anything</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
+    <main class="home-content">
 
-        <!-- Divider -->
-        <div class="divider" role="separator">
-            <svg width="100%" height="1" viewBox="0 0 1200 1" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <line x1="0" y1="0.5" x2="1200" y2="0.5" stroke="#e8e8e8" stroke-width="1"/>
-            </svg>
-        </div>
+      <!-- ===== Intro ===== -->
+      <section class="home-hero">
+        <h1 class="home-hero__title">Hi,<br /><br />I&rsquo;m <strong>Shivam</strong>, a product designer. I love working with complex systems</h1>
+      </section>
 
-        <!-- Projects Section -->
-        <section class="section projects" id="projects">
-            <div class="section-row">
-                <div class="section-label">
-                    <h2 class="label-text">Projects</h2>
-                </div>
-                <div class="projects-grid">
-                    <a href="#" class="project-card">
-                        <div class="project-thumbnail project-thumbnail--kickfurther">
-                            <div class="kf-icon-wrap">
-                                <img src="assets/project-kickfurther-sprite.png" alt="" class="kf-sprite kf-sprite--icon">
-                            </div>
-                            <div class="kf-text-wrap">
-                                <img src="assets/project-kickfurther-sprite.png" alt="" class="kf-sprite kf-sprite--text">
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Inventory funding marketplace</h3>
-                            <p class="project-description">Streamlining onboarding and making compliance visible for businesses, investors, and operations. <a href="#" class="project-read-more">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
-                        </div>
-                    </a>
-                    <a href="#" class="project-card">
-                        <div class="project-thumbnail project-thumbnail--sahayya">
-                            <img src="assets/project-sahayya.svg" alt="Sahayya Finserve" class="project-thumbnail-img">
-                        </div>
-                        <div class="project-info">
-                            <h3 class="project-title">Sahayya - Loan Origination System</h3>
-                            <p class="project-description">Enterprise loan origination for India's self-employed borrowers. <a href="#" class="project-read-more">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+      <hr class="home-divider" />
 
-        <!-- Divider -->
-        <div class="divider" role="separator">
-            <svg width="100%" height="1" viewBox="0 0 1200 1" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <line x1="0" y1="0.5" x2="1200" y2="0.5" stroke="#e8e8e8" stroke-width="1"/>
-            </svg>
-        </div>
+      <!-- ===== Selected work ===== -->
+      <h2 class="visually-hidden">Selected work</h2>
 
-        <!-- My Process Section -->
-        <section class="section process" id="my-process">
-            <div class="section-row">
-                <div class="section-label">
-                    <h2 class="label-text">My Process</h2>
-                </div>
-                <div class="process-image-container">
-                    <img src="assets/process-diagram.png" alt="Design process diagram" class="process-image">
-                </div>
-            </div>
-            <div class="section-row">
-                <div class="section-label hero-label-spacer" aria-hidden="true"></div>
-                <div class="section-content">
-                    <p class="body-text">Good design doesn't start in Figma. It starts with understanding who's doing the work, what the system demands, and where those two things are in conflict. My process is research-led and systems-aware — built for the kind of problems where a well-crafted screen isn't nearly enough.</p>
-                </div>
-            </div>
-            <div class="section-row">
-                <div class="section-label hero-label-spacer" aria-hidden="true"></div>
-                <div class="cta-wrapper">
-                    <a href="#" class="btn-outline">
-                        <span>Learn More</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
+      <!-- Sahayya -->
+      <a class="work-card" href="sahayya.html" aria-label="Sahayya case study — How did I reduce loan processing time from 10 days to 4?">
+        <p class="eyebrow">Enterprise app &bull; UX Design &bull; Fintech</p>
+        <h3 class="work-card__title">How did I reduce loan processing time from 10 days to 4?</h3>
+        <p class="hero__subtitle">Designing an end-to-end loan origination system for India&rsquo;s self-employed borrowers.</p>
 
+        <figure class="asset-slot hero__image work-card__media" data-caption="Sahayya app — hero screens">
+          <img src="assets/img/sahayya/hero.png" alt="Sahayya app — two iPhone screens on a lavender field" />
+        </figure>
+
+        <dl class="meta">
+          <div class="meta__col"><dt>Role</dt><dd>Lead UX Designer</dd></div>
+          <div class="meta__col"><dt>Timeline</dt><dd>December 2022 &ndash; May 2024</dd></div>
+          <div class="meta__col"><dt>Team</dt><dd>1 PM<br />2 UX Designer<br />3 UI Designer</dd></div>
+          <div class="meta__col"><dt>Skills</dt><dd>User Research<br />UX Design<br />Service Design</dd></div>
+        </dl>
+      </a>
+
+      <!-- Kickfurther -->
+      <a class="work-card" href="kickfurther.html" aria-label="Kickfurther case study — How do you build trust in a process no one can see?">
+        <p class="eyebrow">B2B Lending app &bull; UX &amp; UI Design &bull; Service Design</p>
+        <h3 class="work-card__title">How do you build trust in a process no one can see?</h3>
+        <p class="hero__subtitle">Redesigning what happens when a funding deal goes wrong, so no one is left in the dark.</p>
+
+        <figure class="asset-slot hero__image work-card__media" data-caption="Kickfurther — fund your inventory">
+          <img src="assets/img/kickfurther/hero.png" alt="Kickfurther — fund your inventory" />
+        </figure>
+
+        <dl class="meta">
+          <div class="meta__col"><dt>Role</dt><dd>UX UI Designer</dd></div>
+          <div class="meta__col"><dt>Timeline</dt><dd>Jul 2022 &ndash; Sept 2022</dd></div>
+          <div class="meta__col"><dt>Team</dt><dd>1 PM</dd></div>
+          <div class="meta__col"><dt>Skills</dt><dd>Service Design<br />UX Design<br />UI Design</dd></div>
+        </dl>
+      </a>
 
     </main>
+  </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-left">
-            <div class="footer-logo">SS</div>
-            <div class="footer-branding">
-                <p>Design by</p>
-                <p>Shivam</p>
-            </div>
-            <p class="footer-description">
-                UX Designer bridging business,<br>
-                user, and technical constraints.<br>
-                Currently exploring human-AI interaction
-            </p>
-        </div>
-        <div class="footer-right">
-            <h3 class="footer-heading">Get in touch</h3>
-            <div class="footer-links">
-                <a href="mailto:shivam@example.com" class="footer-link">Email</a>
-                <a href="https://linkedin.com/in/shivam" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Chat Overlay (panel lives inside) -->
-    <div class="chat-overlay" id="chatOverlay" aria-hidden="true">
-        <aside class="chat-panel" id="chatPanel" role="dialog" aria-label="Ask Shivam chat" aria-modal="true">
-            <div class="chat-header">
-                <span class="chat-title">Ask Shivam</span>
-                <button class="chat-close" id="chatClose" aria-label="Close chat">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="chat-divider"></div>
-
-            <!-- Welcome state (shown before any messages) -->
-            <div class="chat-welcome" id="chatWelcome">
-                <div class="chat-welcome-intro">
-                    <svg class="chat-welcome-icon" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M17.5 0C17.5 0 15.75 10.5 13.125 13.125C10.5 15.75 0 17.5 0 17.5C0 17.5 10.5 19.25 13.125 21.875C15.75 24.5 17.5 35 17.5 35C17.5 35 19.25 24.5 21.875 21.875C24.5 19.25 35 17.5 35 17.5C35 17.5 24.5 15.75 21.875 13.125C19.25 10.5 17.5 0 17.5 0Z" fill="#0a0a0a"/>
-                    </svg>
-                    <div class="chat-welcome-text">
-                        <p class="chat-welcome-title">Ask Shivam</p>
-                        <p class="chat-welcome-description">Hi, I'm Shivam's AI assistant. Ask me about his projects, design process, case studies, or background — I'll answer based only on what's documented in his portfolio.</p>
-                        <p class="chat-welcome-powered">Powered by StackAI</p>
-                    </div>
-                </div>
-                <div class="chat-prompts">
-                    <button class="chat-prompt">🤖 Tell me something about his AI skills</button>
-                    <button class="chat-prompt">😊 What is Shivam's design experience?</button>
-                    <button class="chat-prompt">🧑‍💼 What's Shivam's educational background?</button>
-                </div>
-            </div>
-
-            <!-- Messages (shown after first message is sent) -->
-            <div class="chat-messages" id="chatMessages"></div>
-
-            <div class="chat-footer">
-                <div class="chat-divider"></div>
-                <div class="chat-input-row">
-                    <input
-                        type="text"
-                        class="chat-input"
-                        id="chatInput"
-                        placeholder="Ask anything about Shivam ..."
-                        autocomplete="off"
-                        aria-label="Your message"
-                    >
-                    <button class="chat-send" id="chatSend" aria-label="Send message">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(-45deg)">
-                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </aside>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__credit">Designed + Coded with <span class="heart">&hearts;</span> by Shivam &amp; Claude</p>
+      <nav class="site-footer__links" aria-label="Social">
+        <a href="#">LinkedIn</a>
+        <a href="#">Email</a>
+      </nav>
     </div>
+  </footer>
 
-    <script src="main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
