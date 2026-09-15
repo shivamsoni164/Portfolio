@@ -82,7 +82,38 @@
     sections.forEach(function (sec) { spy.observe(sec); });
   }
 
-  /* ---------- 4. Smooth-scroll for in-page links ------------------ */
+  /* ---------- 4. Mobile nav dropdown ------------------------------ */
+  var navToggle = document.querySelector(".site-nav__toggle");
+  var navMenu = document.getElementById("nav-menu");
+
+  if (navToggle && navMenu) {
+    function closeNav() {
+      navMenu.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+    function openNav() {
+      navMenu.classList.add("is-open");
+      navToggle.setAttribute("aria-expanded", "true");
+    }
+
+    navToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (navMenu.classList.contains("is-open")) { closeNav(); } else { openNav(); }
+    });
+
+    // Dismiss on outside click, Escape, or choosing a link.
+    document.addEventListener("click", function (e) {
+      if (!navMenu.contains(e.target) && e.target !== navToggle) closeNav();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeNav();
+    });
+    navMenu.addEventListener("click", function (e) {
+      if (e.target.closest("a")) closeNav();
+    });
+  }
+
+  /* ---------- 5. Smooth-scroll for in-page links ------------------ */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (e) {
       var targetId = link.getAttribute("href");

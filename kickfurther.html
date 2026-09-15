@@ -16,22 +16,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/kickfurther.css" />
 </head>
 <body class="kf">
 
   <!-- ===================== TOP NAV ===================== -->
   <header class="site-nav">
     <div class="site-nav__inner">
+      <div class="site-nav__rail" aria-hidden="true"></div>
+      <div class="site-nav__col">
       <a class="brand" href="index.html">
         <span class="brand__name">Shivam Soni</span>
         <span class="brand__role">Product Designer</span>
       </a>
-      <nav class="site-nav__links" aria-label="Primary">
-        <a href="index.html">Work</a>
-        <a href="#">About</a>
-        <a href="#">Resume</a>
+      <nav class="site-nav__nav" aria-label="Primary">
+        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span>Work</span>
+          <svg class="site-nav__caret" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="site-nav__links" id="nav-menu">
+          <a href="index.html" class="is-current">Work</a>
+          <a href="about.html">About</a>
+          <a href="https://drive.google.com/file/d/1szhlKCJLZO5032RSUDJxsAey4lzY45WD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Resume</a>
+        </div>
       </nav>
+      </div>
     </div>
   </header>
 
@@ -263,8 +271,8 @@
     <div class="site-footer__inner">
       <p class="site-footer__credit">Designed + Coded with <span class="heart">&hearts;</span> by Shivam &amp; Claude</p>
       <nav class="site-footer__links" aria-label="Social">
-        <a href="#">LinkedIn</a>
-        <a href="#">Email</a>
+        <a href="https://www.linkedin.com/in/designbyshivam/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:shivamsoni164@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
       </nav>
     </div>
   </footer>

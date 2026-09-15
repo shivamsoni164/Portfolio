@@ -35,3 +35,14 @@ overwrite the file with the same name.
 
 Recreated in HTML/CSS (no export needed): the promise cards + their icons,
 the compliance / red-alert widget, and the 50% / 40% stat tiles.
+
+## About — `assets/img/about/` (page frame `236:2569`)
+
+| File          | What it is                          | Bento cell        |
+|---------------|-------------------------------------|-------------------|
+| `photo-1.png` | Cherry blossoms + UCD certificate   | Row 1, left (187) |
+| `photo-2.png` | Stripe office sign                  | Row 1, middle     |
+| `photo-3.png` | HCI'26 Hackathon award              | Row 1, right (318)|
+| `photo-4.png` | Hillside sunset                     | Row 2, left (299) |
+| `photo-5.png` | Coffee in hand                      | Row 2, middle     |
+| `photo-6.png` | Workday office sign                 | Row 2, right (304)|
