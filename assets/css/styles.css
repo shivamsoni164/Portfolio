@@ -4,27 +4,54 @@
    ===================================================================== */
 
 :root {
-  /* ---- Colour: grey scale ---- */
-  --grey-950: #0c0c0e;
-  --grey-900: #111214;
-  --grey-800: #262728;
-  --grey-700: #3b3c3e;
-  --grey-600: #525355;
-  --grey-500: #6b6c6d;
-  --grey-400: #848586;
-  --grey-100: #d5d6d7;
-  --grey-40:  #fbfbfb;
+  /* =================================================================
+     Design tokens — single source of truth for the whole site.
+     Values mirror the Figma "Mode 1" token export (Grey + Tangy Orange).
+     ================================================================= */
 
-  /* ---- Colour: accents ---- */
-  --orange-400: #ff5630;
-  --orange-300: #ff805c;
-  --blue:       #3b41e3;
+  /* ---- Grey ramp (Figma "Grey") ---- */
+  --grey-40:  #fbfbfb;
+  --grey-50:  #fafafa;
+  --grey-100: #f5f5f5;
+  --grey-200: #e6e6e6;
+  --grey-300: #d6d6d6;
+  --grey-400: #a5a5a5;
+  --grey-500: #767676;
+  --grey-600: #575757;
+  --grey-700: #434343;
+  --grey-800: #212121;
+  --grey-900: #1a1a1a;
+  --grey-950: #0a0a0a;
+
+  /* ---- Tangy Orange ramp (Figma "Tangy Orange") — brand accent ---- */
+  --tangy-50:  #fff9ec;
+  --tangy-100: #fff2d3;
+  --tangy-200: #ffe2a5;
+  --tangy-300: #ffcc6d;
+  --tangy-400: #ffab32;
+  --tangy-500: #ff910a;
+  --tangy-600: #ff7b00;
+  --tangy-700: #cc5902;
+  --tangy-800: #a1460b;
+  --tangy-900: #823b0c;
+  --tangy-950: #461c04;
+
+  /* ---- Semantic aliases (use these in components) ---- */
+  --accent:        var(--tangy-600);   /* primary brand accent  #ff7b00 */
+  --accent-strong: var(--tangy-700);   /* hover / pressed        #cc5902 */
+  --accent-soft:   var(--tangy-400);   /* soft accent rules      #ffab32 */
+  --accent-tint:   var(--tangy-50);    /* faint accent surface   #fff9ec */
+
+  /* ---- Product / illustrative colours (NOT brand tokens — see note) ---- */
+  --blue:       #3b41e3;      /* Sahayya app UI recreation */
   --blue-10:    #f5f5fe;
+  --error:      #ff5630;      /* SQL-error dialog (semantic red) */
+  --success:    #1f8a4c;      /* "mandatory/positive" status pill */
 
   /* ---- Surfaces ---- */
   --bg:            #ffffff;
-  --persona-bg:    #f6efe6;   /* warm cream card */
-  --lavender:      #f4f0fe;   /* hero placeholder tint */
+  --persona-bg:    #f6efe6;   /* warm cream card (illustrative) */
+  --lavender:      #f4f0fe;   /* hero placeholder tint (illustrative) */
   --hairline:      rgba(50, 64, 79, 0.10);
 
   /* ---- Type ---- */
@@ -34,7 +61,7 @@
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
 
   /* ---- Layout ---- */
-  --nav-h: 66px;
+  --nav-h: 64px;
   --content-max: 768px;
   --sidebar-w: 200px;
   --gutter: 64px;
@@ -69,41 +96,85 @@ a { color: inherit; text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: saturate(1.6) blur(10px);
+  background: var(--grey-40);            /* Figma grey/40 #fbfbfb */
   border-bottom: 1px solid var(--hairline);
 }
 .site-nav__inner {
   max-width: var(--wrap-max);
   margin: 0 auto;
-  height: var(--nav-h);
-  padding: 0 var(--page-pad-x);
+  min-height: var(--nav-h);
+  padding: 20px var(--page-pad-x) 21px;
+  display: flex;
+  align-items: center;
+  gap: var(--gutter);
+}
+/* Empty rail + capped column mirror the page's content layout exactly,
+   so the brand/links line up with the intro + cards below at every width. */
+.site-nav__rail { flex: 0 0 var(--sidebar-w); }
+.site-nav__col {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: var(--content-max);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .brand {
   display: flex;
-  gap: 16px;
-  align-items: baseline;
+  gap: 15px;
+  align-items: flex-start;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 22.5px;
   text-transform: uppercase;
-  letter-spacing: .04em;
 }
-.brand__name  { color: var(--grey-800); font-weight: 500; }
-.brand__role  { color: var(--grey-400); }
+.brand__name  { color: var(--grey-700); font-weight: 500; }
+.brand__role  { color: var(--grey-500); }
+
+/* ---- Primary nav wrapper (holds the desktop links + mobile toggle) ---- */
+.site-nav__nav { position: relative; display: flex; align-items: center; }
+
 .site-nav__links {
   display: flex;
-  gap: 34px;
+  align-items: center;
+  gap: 15px;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 22.5px;
   text-transform: uppercase;
-  letter-spacing: .05em;
   color: var(--grey-500);
 }
-.site-nav__links a { transition: color .18s ease; }
-.site-nav__links a:hover { color: var(--grey-800); }
+.site-nav__links a {
+  padding: 0 5px;
+  color: var(--grey-500);
+  transition: color .18s ease;
+}
+.site-nav__links a:hover { color: var(--grey-700); }
+.site-nav__links a.is-current { color: var(--accent); }
+
+/* ---- Mobile dropdown toggle (hidden on desktop) ---- */
+.site-nav__toggle {
+  display: none;
+  align-items: center;
+  gap: 2px;
+  padding: 0 5px;
+  margin: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 22.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.site-nav__caret {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  transition: transform .18s ease;
+}
+.site-nav__toggle[aria-expanded="true"] .site-nav__caret { transform: rotate(180deg); }
 
 /* ============================================================== LAYOUT */
 .layout {
@@ -317,7 +388,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--orange-400);
+  color: var(--accent);
   margin: 0 0 14px;
 }
 .persona__name {
@@ -327,7 +398,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--grey-800);
   margin: 0 0 14px;
 }
-.persona__name span { color: var(--orange-400); }
+.persona__name span { color: var(--accent); }
 .persona__desc {
   font-size: 16px;
   color: var(--grey-600);
@@ -336,7 +407,7 @@ a { color: inherit; text-decoration: none; }
 .persona__quote {
   margin: 0 0 22px;
   padding-left: 16px;
-  border-left: 2px solid var(--orange-300);
+  border-left: 2px solid var(--accent-soft);
   font-size: 16px;
   font-style: italic;
   color: var(--grey-700);
@@ -367,7 +438,7 @@ a { color: inherit; text-decoration: none; }
 /* =============================================================== HMW */
 .hmw { list-style: none; margin: 22px 0; padding: 0; display: flex; flex-direction: column; gap: 28px; }
 .hmw__item {
-  border-left: 2px solid var(--orange-300);
+  border-left: 2px solid var(--accent-soft);
   padding: 2px 0 2px 18px;
   font-style: italic;
   font-size: 18px;
@@ -378,7 +449,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ========================================================= UI CARD */
 .ui-card {
-  border: 1px solid var(--grey-100);
+  border: 1px solid var(--grey-300);
   border-radius: 8px;
   overflow: hidden;
   background: #fff;
@@ -391,7 +462,7 @@ a { color: inherit; text-decoration: none; }
   gap: 4px;
   padding: 10px 14px 0;
   background: var(--blue-10);
-  border-bottom: 1px solid var(--grey-100);
+  border-bottom: 1px solid var(--grey-300);
 }
 .ui-tab {
   font-family: var(--font-mono);
@@ -419,8 +490,8 @@ a { color: inherit; text-decoration: none; }
   padding: 3px 9px;
   border-radius: 999px;
 }
-.ui-status--positive { color: #1f8a4c; background: rgba(31, 138, 76, 0.10); }
-.ui-status--mandatory { color: var(--orange-400); background: rgba(255, 86, 48, 0.10); }
+.ui-status--positive { color: var(--success); background: rgba(31, 138, 76, 0.10); }
+.ui-status--mandatory { color: var(--accent); background: var(--accent-tint); }
 
 .ui-table-wrap { overflow-x: auto; }
 .ui-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 460px; }
@@ -433,10 +504,10 @@ a { color: inherit; text-decoration: none; }
   color: var(--grey-400);
   font-weight: 500;
   padding: 10px 18px;
-  border-bottom: 1px solid var(--grey-100);
+  border-bottom: 1px solid var(--grey-300);
   background: var(--grey-40);
 }
-.ui-table td { padding: 11px 18px; color: var(--grey-700); border-bottom: 1px solid var(--grey-100); }
+.ui-table td { padding: 11px 18px; color: var(--grey-700); border-bottom: 1px solid var(--grey-300); }
 .ui-table__section td {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -451,7 +522,7 @@ a { color: inherit; text-decoration: none; }
   padding: 14px 18px 16px;
   font-size: 14px;
   color: var(--grey-600);
-  border-top: 1px solid var(--grey-100);
+  border-top: 1px solid var(--grey-300);
 }
 .ui-card__remark span {
   font-family: var(--font-mono);
@@ -477,13 +548,13 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 10px;
   background: rgba(255, 86, 48, 0.08);
-  color: var(--orange-400);
+  color: var(--error);
   font-weight: 600;
   font-size: 15px;
   padding: 14px 18px;
   border-bottom: 1px solid rgba(255, 86, 48, 0.2);
 }
-.error-card__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--orange-400); flex: 0 0 auto; }
+.error-card__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--error); flex: 0 0 auto; }
 .error-card__label {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -516,7 +587,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--grey-500);
   margin: 0;
 }
-.heart { color: var(--orange-400); }
+.heart { color: var(--accent); }
 .site-footer__links {
   display: flex;
   gap: 28px;
@@ -534,18 +605,19 @@ a { color: inherit; text-decoration: none; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
-.site-nav__links a.is-current { color: var(--orange-400); }
-
+/* Homepage has no sidebar, so its content is a single column centred on
+   the page (not offset by an empty rail like the case-study layout). */
 .home-layout {
-  max-width: var(--wrap-max);
+  max-width: calc(var(--content-max) + var(--page-pad-x) * 2);
   margin: 0 auto;
   padding: 72px var(--page-pad-x) 40px;
-  display: flex;
-  align-items: flex-start;
-  gap: var(--gutter);
 }
-.home-rail { flex: 0 0 var(--sidebar-w); }
-.home-content { flex: 1 1 auto; min-width: 0; max-width: var(--content-max); }
+.home-rail { display: none; }
+.home-content { min-width: 0; max-width: none; }
+
+/* Centre the shared nav on the homepage so it lines up with that column */
+.home .site-nav__rail { display: none; }
+.home .site-nav__col { margin: 0 auto; }
 
 .home-hero__title {
   font-family: var(--font-display);
@@ -559,7 +631,7 @@ a { color: inherit; text-decoration: none; }
 }
 .home-hero__title strong { font-weight: 600; }
 
-.home-divider { border: 0; border-top: 1px solid var(--grey-100); margin: 44px 0; }
+.home-divider { border: 0; border-top: 1px solid var(--grey-300); margin: 44px 0; }
 
 /* Whole card is a link to its case study */
 .work-card {
@@ -584,9 +656,9 @@ a { color: inherit; text-decoration: none; }
 }
 .work-card .hero__subtitle { margin-bottom: 28px; }
 .work-card__media { transition: filter .25s ease; }
-.work-card:hover .work-card__title { color: var(--orange-400); }
+.work-card:hover .work-card__title { color: var(--accent); }
 .work-card:hover .work-card__media { filter: brightness(0.985); }
-.work-card:focus-visible { outline: 2px solid var(--orange-400); }
+.work-card:focus-visible { outline: 2px solid var(--accent); }
 
 /* ========================================================= ANIMATION */
 .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
@@ -603,6 +675,9 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 900px) {
   :root { --page-pad-x: 32px; --section-gap: 64px; }
+  /* Sidebar collapses, so the nav spans the full width too */
+  .site-nav__rail { display: none; }
+  .site-nav__col { max-width: none; }
   .layout { flex-direction: column; padding-top: 40px; gap: 0; }
   .sidebar {
     position: static;
@@ -627,9 +702,26 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 640px) {
   :root { --page-pad-x: 20px; --nav-h: 60px; }
   body { font-size: 16px; }
-  .site-nav__inner { padding: 0 var(--page-pad-x); }
-  .brand { flex-direction: column; gap: 2px; }
-  .site-nav__links { gap: 18px; font-size: 13px; }
+  .site-nav__inner { padding: 20px var(--page-pad-x) 21px; }
+
+  /* Collapse the inline links into a dropdown revealed by the toggle */
+  .site-nav__toggle { display: inline-flex; }
+  .site-nav__links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 21px);
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 120px;
+    padding: 20px;
+    background: var(--grey-100);                  /* Figma grey/100 */
+    box-shadow: 0 2px 1px rgba(165, 165, 165, 0.1);
+    z-index: 110;
+  }
+  .site-nav__links.is-open { display: flex; }
+
   .meta { grid-template-columns: repeat(2, 1fr); gap: 28px; }
   .persona__body { padding: 24px; }
   .site-footer__inner { flex-direction: column; align-items: flex-start; gap: 14px; }
@@ -637,7 +729,6 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 400px) {
   .meta { grid-template-columns: 1fr; }
-  .site-nav__links { gap: 14px; }
 }
 
 /* ---- Home responsive ---- */
@@ -645,4 +736,315 @@ a { color: inherit; text-decoration: none; }
   .home-layout { padding-top: 40px; gap: 0; }
   .home-rail { display: none; }
   .home-content { max-width: none; }
+}
+
+
+/* =====================================================================
+   Kickfurther case study — page-specific overrides
+   Type system differs from Sahayya: Fraunces (display, serif) for
+   headings, Ek Mukta for body, mono for labels. Merged into this single stylesheet (scoped to body.kf).
+   ===================================================================== */
+
+body.kf {
+  /* Redefine the shared font tokens for this page only */
+  --font-sans: "Mukta", "Ek Mukta", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Kickfurther-specific tokens */
+  --kf-purple: #8b3fa3;
+  --red-200: #fee5ea;
+  --red-700: #ed3355;
+  --red-800: #c72850;
+
+  font-size: 18px;
+}
+
+/* ---- Type tuning for the serif/sans pairing ---- */
+.kf .eyebrow { font-size: 15px; color: var(--grey-600); }
+
+.kf .hero__title {
+  font-weight: 400;
+  font-size: clamp(32px, 4.8vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  font-optical-sizing: auto;
+}
+.kf .hero__subtitle {
+  font-size: clamp(19px, 2.2vw, 22px);
+  line-height: 1.45;
+  color: var(--grey-400);
+  max-width: 680px;
+}
+.kf .section__title {
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  font-optical-sizing: auto;
+}
+.kf .body {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.45;
+  color: var(--grey-500);
+}
+
+/* ---- Sub-section headings (Ek Mukta Medium 26) ---- */
+.kf-subhead {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(21px, 2.6vw, 26px);
+  line-height: 1.25;
+  color: var(--grey-700);
+  margin: 10px 0 20px;
+}
+
+/* ---- The "in the dark" statements: Ek Mukta 22 / grey-700, bold lead-in,
+       subtle grey-40 fill + orange left rule (per Figma) ---- */
+.kf .hmw { gap: 30px; }
+.kf .hmw__item {
+  font-style: normal;
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.45;
+  color: var(--grey-700);
+  background: var(--grey-40);
+  padding: 6px 0 6px 15px;
+}
+.kf .hmw__item strong { color: var(--grey-700); font-weight: 700; }
+
+/* ===================================================== PROMISE CARDS */
+.kf-cards {
+  list-style: none;
+  margin: 32px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.kf-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--grey-50);
+  border-radius: 12px;
+  padding: 24px;
+}
+.kf-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--kf-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: #fff;
+}
+.kf-card__icon svg { width: 20px; height: 20px; display: block; }
+.kf-card__title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--grey-900);
+  margin: 0;
+}
+.kf-card__desc {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--grey-500);
+  margin: 0;
+}
+
+/* ============================================== COMPLIANCE / ALERTS */
+.kf-status {
+  border: 1px solid var(--grey-200);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  margin: 8px 0 40px;
+}
+.kf-status__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--grey-200);
+  background: var(--grey-40);
+}
+.kf-status__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--grey-600);
+}
+.kf-x {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--red-700);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+.kf-alerts { list-style: none; margin: 0; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.kf-alert {
+  background: var(--red-200);
+  color: var(--red-800);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.kf-alert a { color: var(--red-800); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+/* ===================================================== BLUEPRINT STRIP */
+.kf-strip {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin: 8px 0 32px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.kf-strip__item {
+  flex: 0 0 auto;
+  height: clamp(240px, 40vw, 380px);
+  margin: 0;
+  scroll-snap-align: start;
+}
+.kf-strip__item img { width: auto; height: 100%; max-width: none; }
+
+/* ===================================================== STAT TILES */
+.kf-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 28px 0 8px;
+}
+.kf-stat {
+  background: var(--grey-50);
+  border: none;
+  border-top: 3px solid var(--accent-soft);
+  border-radius: 0;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.kf-stat__icon { width: 29px; height: 29px; color: var(--accent); flex: 0 0 auto; }
+.kf-stat__icon svg { width: 100%; height: 100%; display: block; }
+.kf-stat__num {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(34px, 4.6vw, 42px);
+  line-height: 1;
+  color: var(--grey-700);
+}
+.kf-stat__label {
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1.35;
+  color: var(--grey-700);
+}
+
+/* ===================================================== ASSET ASPECTS */
+.kf .diagram--marketplace { aspect-ratio: 768 / 337; }
+.kf .diagram--flow        { aspect-ratio: 768 / 420; }
+.kf .diagram--investor    { aspect-ratio: 768 / 253; }
+.kf .diagram--business    { aspect-ratio: 768 / 456; }
+.kf .diagram--wide        { aspect-ratio: 840 / 193; }
+
+.kf .asset-slot.is-missing.diagram--marketplace::after { min-height: 220px; }
+.kf .asset-slot.is-missing.diagram--flow::after        { min-height: 280px; }
+.kf .asset-slot.is-missing.diagram--investor::after    { min-height: 180px; }
+.kf .asset-slot.is-missing.diagram--business::after    { min-height: 320px; }
+.kf .asset-slot.is-missing.diagram--wide::after        { min-height: 150px; }
+.kf .asset-slot.is-missing.kf-strip__item::after       { min-height: 220px; }
+
+/* ===================================================== RESPONSIVE */
+@media (max-width: 900px) {
+  .kf-cards { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 640px) {
+  body.kf { font-size: 17px; }
+  .kf-stats { grid-template-columns: 1fr; }
+  .kf-strip__item { flex-basis: 92%; }
+}
+
+
+/* =====================================================================
+   About page (Figma node 236:2569) — centred column, photo bento,
+   display heading + body. Reuses .home-layout / .home-content centring.
+   ===================================================================== */
+body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
+
+.about-stack { display: flex; flex-direction: column; gap: 44px; width: 100%; }
+.about-divider { border: 0; border-top: 1px solid var(--hairline); margin: 0; width: 100%; }
+
+/* Photo bento — 768 × 428, two rows of three (widths per Figma). */
+.about-bento {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  aspect-ratio: 768 / 428;
+}
+.about-bento__row { display: flex; gap: 16px; flex: 1 1 0; min-height: 0; }
+.about-bento__cell {
+  position: relative;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+}
+.about-bento__cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Flex-grow ratios reproduce the exact column widths at 768 and scale down. */
+.about-bento__row--1 .about-bento__cell:nth-child(1) { flex: 187 0 0; }
+.about-bento__row--1 .about-bento__cell:nth-child(2) { flex: 231 0 0; }
+.about-bento__row--1 .about-bento__cell:nth-child(3) { flex: 318 0 0; }
+.about-bento__row--2 .about-bento__cell:nth-child(1) { flex: 299 0 0; }
+.about-bento__row--2 .about-bento__cell:nth-child(2) { flex: 133 0 0; }
+.about-bento__row--2 .about-bento__cell:nth-child(3) { flex: 304 0 0; }
+/* Keep the missing-image placeholder filling its cell until photos are added */
+.about-bento__cell.is-missing { aspect-ratio: auto; }
+.about-bento__cell.is-missing::after { min-height: 100%; }
+
+.about-text { display: flex; flex-direction: column; gap: 32px; width: 100%; }
+.about-heading {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: clamp(32px, 4.8vw, 48px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--grey-800);
+  margin: 0;
+}
+.about-body p {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.45;
+  color: var(--grey-500);
+  margin: 0 0 32px;
+}
+.about-body p:last-child { margin-bottom: 0; }
+.about-body ul { margin: 0; padding-left: 26px; list-style: disc; }
+.about-body li {
+  font-size: clamp(18px, 2.2vw, 22px);
+  line-height: 1.45;
+  color: var(--grey-500);
+}
+
+@media (max-width: 640px) {
+  .about-bento { aspect-ratio: auto; }
+  .about-bento__row { height: 150px; flex: 0 0 auto; }
 }
