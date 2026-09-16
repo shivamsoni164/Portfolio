@@ -678,7 +678,10 @@ a { color: inherit; text-decoration: none; }
   /* Sidebar collapses, so the nav spans the full width too */
   .site-nav__rail { display: none; }
   .site-nav__col { max-width: none; }
-  .layout { flex-direction: column; padding-top: 40px; gap: 0; }
+  /* align-items:stretch pins the content column to the screen width so
+     wide children (e.g. the Kickfurther blueprint strip) scroll inside
+     their own box instead of blowing the page out horizontally. */
+  .layout { flex-direction: column; align-items: stretch; padding-top: 40px; gap: 0; }
   .sidebar {
     position: static;
     width: 100%;
