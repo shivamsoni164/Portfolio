@@ -59,6 +59,8 @@
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   /* Serif display face for headings (Fraunces), matching the Figma design */
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  /* Body/UI face for the Home + About pages (Figma uses Sora) */
+  --font-body: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 
   /* ---- Layout ---- */
   --nav-h: 64px;
@@ -619,46 +621,150 @@ a { color: inherit; text-decoration: none; }
 .home .site-nav__rail { display: none; }
 .home .site-nav__col { margin: 0 auto; }
 
-.home-hero__title {
+/* =====================================================================
+   HOME PAGE (Figma 273:76 desktop / 313:3715 mobile)
+   Wide two-column layout: hero (heading + intro), then case rows pairing
+   a text column with a MacBook browser mockup. Two-column >=1280px,
+   single-column stack below (tablet + mobile).
+   ===================================================================== */
+/* Full-width nav on the homepage (no sidebar rail; not the centred About nav).
+   The nav wrap matches the homepage content wrap so the brand + links line up
+   with the content edges at full width. */
+.hp .site-nav__rail { display: none; }
+.hp .site-nav__col { max-width: none; }
+.hp .site-nav__inner,
+.hp .site-footer__inner { max-width: calc(1602px + var(--page-pad-x) * 2); }
+
+.hp-main {
+  max-width: calc(1602px + var(--page-pad-x) * 2);
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 120px) var(--page-pad-x);
+}
+.hp-stack { display: flex; flex-direction: column; gap: 44px; }
+
+/* ---- Hero ---- */
+.hp-hero {
+  display: flex;
+  gap: 60px;
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+.hp-hero__title {
+  flex: 642 1 0;
+  min-width: 0;
+  margin: 0;
   font-family: var(--font-display);
   font-optical-sizing: auto;
   font-weight: 400;
-  font-size: clamp(30px, 4.4vw, 45px);
-  line-height: 1.27;
-  letter-spacing: -0.02em;
+  font-size: clamp(24px, 3.4vw, 45px);
+  line-height: 1.3;
+  letter-spacing: -0.023em;
+  color: var(--grey-900);
+}
+.hp-hero__title strong { font-weight: 600; }
+.hp-hero__intro {
+  flex: 900 1 0;
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.15vw, 18px);
+  line-height: 1.56;
+  letter-spacing: 0.005em;
+  color: var(--grey-700);
+}
+.hp-hero__intro strong { font-weight: 600; }
+
+.hp-divider { border: 0; border-top: 1px solid var(--grey-300); margin: 0; }
+
+/* ---- Work ---- */
+.hp-work { display: flex; flex-direction: column; gap: 60px; padding-top: 40px; }
+.hp-case {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 12px;
+  outline-offset: 8px;
+}
+.hp-case__text {
+  flex: 642 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.hp-case__head { display: flex; flex-direction: column; gap: 22px; }
+.hp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1vw, 16px);
+  line-height: 1.4;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  margin: 0;
+}
+.hp-case__title {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 34px);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--grey-900);
+  margin: 0;
+  transition: color .2s ease;
+}
+.hp-case__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.15vw, 18px);
+  line-height: 1.45;
   color: var(--grey-700);
   margin: 0;
 }
-.home-hero__title strong { font-weight: 600; }
-
-.home-divider { border: 0; border-top: 1px solid var(--grey-300); margin: 44px 0; }
-
-/* Whole card is a link to its case study */
-.work-card {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  margin-bottom: 72px;
-  border-radius: 12px;
-  outline-offset: 6px;
+.hp-meta { display: flex; flex-wrap: wrap; gap: 16px; margin: 0; }
+.hp-meta__col { display: flex; flex-direction: column; gap: 8px; flex: 0 0 auto; width: 180px; }
+.hp-meta__col dt {
+  font-family: var(--font-mono);
+  font-size: clamp(12px, 1vw, 16px);
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--grey-600);
 }
-.work-card:last-of-type { margin-bottom: 0; }
-.work-card__title {
-  font-family: var(--font-display);
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-size: clamp(28px, 4vw, 42px);
-  line-height: 1.12;
-  letter-spacing: -0.005em;
-  color: var(--grey-800);
-  margin: 0 0 16px;
-  transition: color .2s ease;
+.hp-meta__col dd {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.15vw, 18px);
+  line-height: 1.33;
+  color: var(--grey-400);
 }
-.work-card .hero__subtitle { margin-bottom: 28px; }
-.work-card__media { transition: filter .25s ease; }
-.work-card:hover .work-card__title { color: var(--accent); }
-.work-card:hover .work-card__media { filter: brightness(0.985); }
-.work-card:focus-visible { outline: 2px solid var(--accent); }
+.hp-case:hover .hp-case__title { color: var(--accent); }
+.hp-case:focus-visible { outline: 2px solid var(--accent); }
+
+/* ---- Case media (single browser-mockup image supplied by the designer) ---- */
+.hp-case__media { flex: 900 1 0; min-width: 0; margin: 0; }
+.hp-case__media.asset-slot { border: 0; border-radius: 0; background: transparent; }
+.hp-case__media.asset-slot:not(.is-missing) { aspect-ratio: auto; }
+.hp-case__media img { width: 100%; height: auto; display: block; }
+/* Placeholder box until the mockup image is uploaded */
+.hp-case__media.is-missing { aspect-ratio: 1600 / 1000; background: var(--grey-100); }
+.hp-case__media.is-missing::after { min-height: 200px; }
+
+/* Stack to a single column on tablet + mobile; laptop mockup goes on top */
+@media (max-width: 1279px) {
+  /* Stacked column: reset the desktop flex ratios (flex-basis:0 would collapse
+     the height of each item — notably the mockup image — to 0 in a column). */
+  .hp-hero { flex-direction: column; align-items: flex-start; gap: 30px; padding-bottom: 0; }
+  .hp-hero__title, .hp-hero__intro { flex: 0 0 auto; width: 100%; }
+  .hp-case { flex-direction: column; gap: 24px; }
+  .hp-case__text { flex: 0 0 auto; width: 100%; }
+  .hp-case__media { flex: 0 0 auto; width: 100%; order: -1; }
+  .hp-work { gap: 44px; }
+}
+@media (max-width: 640px) {
+  /* Meta columns shrink so Role + Timeline still sit side by side on phones */
+  .hp-meta__col { width: auto; min-width: 108px; }
+}
 
 /* ========================================================= ANIMATION */
 .fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
@@ -1027,27 +1133,52 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
   font-family: var(--font-display);
   font-optical-sizing: auto;
   font-weight: 400;
-  font-size: clamp(32px, 4.8vw, 48px);
-  line-height: 1.04;
+  font-size: clamp(24px, 4.8vw, 48px);
+  line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--grey-800);
   margin: 0;
 }
+/* Body switches to Sora (Figma) — 18/25 desktop, 14/24 mobile */
 .about-body p {
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.4vw, 18px);
   line-height: 1.45;
   color: var(--grey-500);
-  margin: 0 0 32px;
+  margin: 0 0 25px;
 }
 .about-body p:last-child { margin-bottom: 0; }
-.about-body ul { margin: 0; padding-left: 26px; list-style: disc; }
+.about-body ul { margin: 0; padding-left: 27px; list-style: disc; }
 .about-body li {
-  font-size: clamp(18px, 2.2vw, 22px);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.4vw, 18px);
   line-height: 1.45;
   color: var(--grey-500);
 }
 
+/* "Lets Chat" button — bordered pill, only the bottom-right corner rounded */
+.about-cta-wrap { margin-top: 40px; }
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background: var(--grey-40);
+  border: 1px solid var(--grey-900);
+  border-radius: 0 0 9px 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--grey-900);
+  transition: background .18s ease, color .18s ease;
+}
+.about-cta:hover { background: var(--grey-900); color: var(--grey-40); }
+
 @media (max-width: 640px) {
   .about-bento { aspect-ratio: auto; }
-  .about-bento__row { height: 150px; flex: 0 0 auto; }
+  .about-bento__row { height: 150px; flex: 0 0 auto; gap: 4px; }
+  .about-bento { gap: 8px; }
+  .about-divider { display: none; }
 }

@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <title>Shivam Soni — Product Designer</title>
-  <meta name="description" content="Shivam Soni — product & HCI researcher who loves working with complex systems. Selected UX case studies: Sahayya and Kickfurther." />
+  <meta name="description" content="Shivam Soni — product designer and HCI researcher who loves working with complex systems. Selected UX case studies: Sahayya and Kickfurther." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Shivam Soni — Product Designer" />
-  <meta property="og:description" content="Product & HCI researcher who loves working with complex systems. Selected UX case studies." />
+  <meta property="og:description" content="Product designer & HCI researcher who loves working with complex systems. Selected UX case studies." />
   <meta property="og:image" content="assets/img/kickfurther/hero.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@400;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="home">
+<body class="hp">
 
   <!-- ===================== TOP NAV ===================== -->
   <header class="site-nav">
@@ -44,59 +47,62 @@
   </header>
 
   <!-- ===================== HOME ===================== -->
-  <div class="home-layout">
-    <div class="home-rail" aria-hidden="true"></div>
-
-    <main class="home-content">
+  <main class="hp-main">
+    <div class="hp-stack">
 
       <!-- ===== Intro ===== -->
-      <section class="home-hero">
-        <h1 class="home-hero__title">Hi,<br /><br />I&rsquo;m <strong>Shivam</strong>, a product designer. I love working with complex systems</h1>
+      <section class="hp-hero">
+        <h1 class="hp-hero__title">Hi,<br /><br />I&rsquo;m <strong>Shivam</strong>, a product designer and a HCI Researcher. I love working with complex systems.</h1>
+        <p class="hp-hero__intro">I started as a fashion and accessory designer, but got pulled toward how systems and people work together, <strong>not just how things look</strong>. For the last four years I&rsquo;ve designed complex products in regulated industries, spending time with real users to understand how they actually work before building for them.</p>
       </section>
 
-      <hr class="home-divider" />
+      <hr class="hp-divider" />
 
       <!-- ===== Selected work ===== -->
       <h2 class="visually-hidden">Selected work</h2>
+      <div class="hp-work">
 
-      <!-- Sahayya -->
-      <a class="work-card" href="sahayya.html" aria-label="Sahayya case study — How did I reduce loan processing time from 10 days to 4?">
-        <p class="eyebrow">Enterprise app &bull; UX Design &bull; Fintech</p>
-        <h3 class="work-card__title">How did I reduce loan processing time from 10 days to 4?</h3>
-        <p class="hero__subtitle">Designing an end-to-end loan origination system for India&rsquo;s self-employed borrowers.</p>
+        <!-- Sahayya -->
+        <a class="hp-case" href="sahayya.html" aria-label="Sahayya case study — How did I reduce loan processing time from 10 days to 4?">
+          <div class="hp-case__text">
+            <div class="hp-case__head">
+              <p class="hp-eyebrow">Enterprise app &bull; UX Design &bull; Fintech</p>
+              <h3 class="hp-case__title">How did I reduce loan processing time from 10 days to 4?</h3>
+              <p class="hp-case__subtitle">Designing an end-to-end loan origination system for India&rsquo;s self-employed borrowers.</p>
+            </div>
+            <dl class="hp-meta">
+              <div class="hp-meta__col"><dt>Role</dt><dd>Lead UX Designer</dd></div>
+              <div class="hp-meta__col"><dt>Timeline</dt><dd>December 2022 &ndash; May 2024</dd></div>
+              <div class="hp-meta__col"><dt>Skills</dt><dd>User Research<br />UX Design<br />Service Design</dd></div>
+            </dl>
+          </div>
+          <figure class="hp-case__media asset-slot" data-caption="Sahayya loan-origination app mockup">
+            <img src="assets/img/home/laptop-sahayya.png" alt="Sahayya loan-lending app — stage &amp; status dashboard, in a browser mockup" />
+          </figure>
+        </a>
 
-        <figure class="asset-slot hero__image work-card__media" data-caption="Sahayya app — hero screens">
-          <img src="assets/img/sahayya/hero.png" alt="Sahayya app — two iPhone screens on a lavender field" />
-        </figure>
+        <!-- Kickfurther -->
+        <a class="hp-case" href="kickfurther.html" aria-label="Kickfurther case study — How do you build trust in a process no one can see?">
+          <div class="hp-case__text">
+            <div class="hp-case__head">
+              <p class="hp-eyebrow">B2B Lending app &bull; UX &amp; UI Design &bull; Service Design</p>
+              <h3 class="hp-case__title">How do you build trust in a process no one can see?</h3>
+              <p class="hp-case__subtitle">Redesigning what happens when a funding deal goes wrong, so no one is left in the dark.</p>
+            </div>
+            <dl class="hp-meta">
+              <div class="hp-meta__col"><dt>Role</dt><dd>UX UI Designer</dd></div>
+              <div class="hp-meta__col"><dt>Timeline</dt><dd>Jul 2022 &ndash; Sept 2022</dd></div>
+              <div class="hp-meta__col"><dt>Skills</dt><dd>Service Design<br />UX Design<br />UI Design</dd></div>
+            </dl>
+          </div>
+          <figure class="hp-case__media asset-slot" data-caption="Kickfurther investor dashboard mockup">
+            <img src="assets/img/home/laptop-kickfurther.png" alt="Kickfurther dashboard — Co-Ops and account overview, in a browser mockup" />
+          </figure>
+        </a>
 
-        <dl class="meta">
-          <div class="meta__col"><dt>Role</dt><dd>Lead UX Designer</dd></div>
-          <div class="meta__col"><dt>Timeline</dt><dd>December 2022 &ndash; May 2024</dd></div>
-          <div class="meta__col"><dt>Team</dt><dd>1 PM<br />2 UX Designer<br />3 UI Designer</dd></div>
-          <div class="meta__col"><dt>Skills</dt><dd>User Research<br />UX Design<br />Service Design</dd></div>
-        </dl>
-      </a>
-
-      <!-- Kickfurther -->
-      <a class="work-card" href="kickfurther.html" aria-label="Kickfurther case study — How do you build trust in a process no one can see?">
-        <p class="eyebrow">B2B Lending app &bull; UX &amp; UI Design &bull; Service Design</p>
-        <h3 class="work-card__title">How do you build trust in a process no one can see?</h3>
-        <p class="hero__subtitle">Redesigning what happens when a funding deal goes wrong, so no one is left in the dark.</p>
-
-        <figure class="asset-slot hero__image work-card__media" data-caption="Kickfurther — fund your inventory">
-          <img src="assets/img/kickfurther/hero.png" alt="Kickfurther — fund your inventory" />
-        </figure>
-
-        <dl class="meta">
-          <div class="meta__col"><dt>Role</dt><dd>UX UI Designer</dd></div>
-          <div class="meta__col"><dt>Timeline</dt><dd>Jul 2022 &ndash; Sept 2022</dd></div>
-          <div class="meta__col"><dt>Team</dt><dd>1 PM</dd></div>
-          <div class="meta__col"><dt>Skills</dt><dd>Service Design<br />UX Design<br />UI Design</dd></div>
-        </dl>
-      </a>
-
-    </main>
-  </div>
+      </div>
+    </div>
+  </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
