@@ -893,9 +893,11 @@ body.kf {
   font-optical-sizing: auto;
 }
 .kf .body {
-  font-size: clamp(18px, 2.2vw, 22px);
-  line-height: 1.45;
-  color: var(--grey-500);
+  font-family: var(--font-body);      /* Sora (Figma "Body Regular 22") */
+  font-weight: 300;                    /* Light */
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--grey-700);
 }
 
 /* ---- Sub-section headings (Ek Mukta Medium 26) ---- */
@@ -912,12 +914,15 @@ body.kf {
        subtle grey-40 fill + orange left rule (per Figma) ---- */
 .kf .hmw { gap: 30px; }
 .kf .hmw__item {
+  font-family: var(--font-body);
+  font-weight: 300;
   font-style: normal;
-  font-size: clamp(18px, 2.2vw, 22px);
-  line-height: 1.45;
-  color: var(--grey-700);
-  background: var(--grey-40);
-  padding: 6px 0 6px 15px;
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--grey-600);
+  background: var(--grey-100);
+  border-left: 2px solid #ff910a;      /* Figma tangy-orange/500 */
+  padding: 6px 15px;
 }
 .kf .hmw__item strong { color: var(--grey-700); font-weight: 700; }
 
@@ -1087,6 +1092,52 @@ body.kf {
   body.kf { font-size: 17px; }
   .kf-stats { grid-template-columns: 1fr; }
   .kf-strip__item { flex-basis: 92%; }
+}
+
+/* =====================================================================
+   Case-study updates (Figma "KF Page" resync)
+   ===================================================================== */
+
+/* Full-width top nav on case-study pages (brand hard-left, links hard-right) */
+.cs .site-nav__rail { display: none; }
+.cs .site-nav__col  { max-width: none; }
+
+/* Introduction marketplace diagram */
+.kf .diagram--intro { aspect-ratio: 848 / 372; }
+.kf .asset-slot.is-missing.diagram--intro::after { min-height: 240px; }
+
+/* Wide flow maps / service blueprints — readable height, scroll horizontally */
+.kf .kf-scroll {
+  margin: 8px 0 32px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.kf .kf-scroll:has(img) {
+  border: 1px solid var(--grey-200);
+  border-radius: 10px;
+  background: var(--grey-40);
+}
+.kf .kf-scroll img {
+  height: clamp(280px, 46vw, 460px);
+  width: auto;
+  max-width: none;
+}
+.kf .asset-slot.is-missing.kf-scroll::after { min-height: 300px; }
+
+/* Two-up screenshot row (Go deeper into the cancellation flow) */
+.kf .kf-duo {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  margin: 8px 0 32px;
+}
+.kf .kf-duo__item { flex: 1 1 0; min-width: 0; margin: 0; }
+.kf .asset-slot.is-missing.kf-duo__item::after { min-height: 220px; }
+
+@media (max-width: 640px) {
+  .kf .kf-duo { flex-direction: column; }
+  .kf .kf-scroll img { height: 260px; }
 }
 
 
