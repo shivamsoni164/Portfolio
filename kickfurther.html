@@ -25,10 +25,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@400;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@300;400;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="kf">
+<body class="kf cs">
 
   <!-- ===================== TOP NAV ===================== -->
   <header class="site-nav">
@@ -80,8 +80,8 @@
         <h1 class="hero__title">How do you build trust in a process no one can see?</h1>
         <p class="hero__subtitle">Redesigning what happens when a funding deal goes wrong, so no one is left in the dark.</p>
 
-        <figure class="asset-slot hero__image" data-caption="Fund your inventory — hero">
-          <img src="assets/img/kickfurther/hero.png" alt="Kickfurther — fund your inventory" />
+        <figure class="asset-slot hero__image" data-caption="Kickfurther deal-detail view — browser mockup">
+          <img src="assets/img/kickfurther/hero.png" alt="Kickfurther deal-detail dashboard shown in a browser mockup" />
         </figure>
 
         <dl class="meta">
@@ -95,7 +95,7 @@
           </div>
           <div class="meta__col">
             <dt>Team</dt>
-            <dd>1 PM</dd>
+            <dd>1 PM<br />1 UX &amp; UI Designer<br />Kickfurther team</dd>
           </div>
           <div class="meta__col">
             <dt>Skills</dt>
@@ -110,8 +110,8 @@
         <h2 class="section__title">Kickfurther: a marketplace that runs on trust.</h2>
         <p class="body">Picture a small business that&rsquo;s just landed the biggest order of its life. To fulfil it, they need to produce a lot of stock, and fast, which means they need cash now. A bank could lend it, but a bank takes its time: days of paperwork, approvals, and back-and-forth before any money actually moves. When there&rsquo;s an order to deliver and a deadline closing in, that kind of wait can cost you the whole deal.</p>
 
-        <figure class="asset-slot diagram diagram--marketplace" data-caption="How the marketplace works — backers, business, Kickfurther">
-          <img src="assets/img/kickfurther/marketplace.png" alt="Diagram: backer-lenders and a business-borrower connected through Kickfurther" />
+        <figure class="asset-slot diagram diagram--intro" data-caption="How Kickfurther connects backers, businesses, and the platform">
+          <img src="assets/img/kickfurther/intro.png" alt="How Kickfurther connects a crowd of backers with a business needing inventory funding" />
         </figure>
 
         <p class="body">Kickfurther offers another way. Instead of one big lender, the money comes from a crowd of individual investors: ordinary people, not banks, who each put in a share and together cover the cost of producing the inventory. The business gets its money quickly, makes the products, and as those products sell, everyone who chipped in gets their money back, plus a little extra. No slow loan, no giving away a piece of the company. When it works, everyone wins. But the whole thing balances on one fragile thing: trust. All those people are handing money to a business they&rsquo;ve never met, on a promise that the products will sell and the money will come back. As long as sales keep coming in and the business keeps everyone updated, that trust holds.</p>
@@ -153,21 +153,6 @@
       <!-- ===== THE PROBLEM ===== -->
       <section id="problem" class="section">
         <p class="eyebrow">The Problem</p>
-
-        <!-- Compliance status + alerts (recreated UI) -->
-        <div class="kf-status" role="img" aria-label="A deal's compliance status with three failing checks and required actions">
-          <div class="kf-status__tabs">
-            <span class="kf-status__tab"><span class="kf-x" aria-hidden="true">&times;</span> Meeting Original Commitments</span>
-            <span class="kf-status__tab"><span class="kf-x" aria-hidden="true">&times;</span> Timely Sales Reports</span>
-            <span class="kf-status__tab"><span class="kf-x" aria-hidden="true">&times;</span> Invoices Cleared</span>
-          </div>
-          <ul class="kf-alerts">
-            <li class="kf-alert">Mandatory Sales Report Pending. In order to be in compliance, <a href="#">Submit Sales Report Now</a></li>
-            <li class="kf-alert">Total Due Amount is $2,000. To get in compliance and avoid penalties, <a href="#">Make Payment Now</a></li>
-            <li class="kf-alert">Last update posted on 28 Jul 2021, <a href="#">Post an Update Now</a></li>
-          </ul>
-        </div>
-
         <h2 class="section__title">The Black Box.</h2>
         <p class="body">Most deals go fine. But every so often, a business gets buried in the work of actually selling and goes quiet. It stops posting updates. It misses a scheduled sales report. A payment slip. On paper, that trips a status called &ldquo;out of compliance.&rdquo; In plain terms: the business has fallen behind on what it promised, and the people who funded it are suddenly owed answers. If the business can pull things back on track, the deal will recover. If it can&rsquo;t, Kickfurther has to step in and carefully unwind the deal: chasing settlements, working out what can be recovered, and returning whatever money it can to the people who invested.</p>
         <p class="body">Here&rsquo;s the problem. That entire recovery process happened almost entirely outside the app, in emails, phone calls, and spreadsheets passed between teams. There was no single place to see what was happening, or what came next.</p>
@@ -188,30 +173,38 @@
         <h2 class="section__title">Mapping the invisible.</h2>
 
         <h3 class="kf-subhead">Start with the happy path</h3>
-        <figure class="asset-slot diagram diagram--flow" data-caption="Mapping the deal's normal life — the happy path">
-          <img src="assets/img/kickfurther/happy-path.png" alt="Flow map of a funding deal's normal life from start to finish" />
+        <p class="body">You can&rsquo;t fix a process until you can see all of it in one place, and back then, no one could. So the first thing I did was draw it. I began with the deal&rsquo;s normal life: how a funding deal moves from start to finish when everything goes right. For the happy path, it came together cleanly. But the moment a deal went bad, the map went vague. The steps thinned out, the detail fell away, and it was clear no one had ever really charted what happened after things went wrong. That blank space on the map was the problem. The failure path was the part nobody owned.</p>
+        <figure class="asset-slot kf-scroll" data-caption="The deal&rsquo;s normal life — the happy path (scroll to explore)">
+          <img src="assets/img/kickfurther/happy-path.png" alt="Flowchart of a funding deal's normal lifecycle: funded, meeting commitments, satisfied, repeating until sold" />
         </figure>
-        <p class="body">I didn&rsquo;t start with screens. You can&rsquo;t fix a process until you can see all of it in one place, and back then, no one could. So the first thing I did was draw it. I began with the deal&rsquo;s normal life: how a funding deal moves from start to finish when everything goes right. For the happy path, it came together cleanly. But the moment a deal went bad, the map went vague. The steps thinned out, the detail fell away, and it was clear no one had ever really charted what happened after things went wrong. That blank space on the map was the problem. The failure path was the part nobody owned.</p>
 
         <h3 class="kf-subhead">Go deeper into the cancellation flow</h3>
-        <p class="body">So I went straight at that part: what actually happens when a deal falls out of good standing. I sat with the teams who touched it (product, operations, legal, and customer service) and asked each of them to walk me through it. What I got back were different walkthroughs. Every team described the process a little differently, and no two versions quite lined up. That mismatch wasn&rsquo;t noise. It was the finding. If the people running the process couldn&rsquo;t tell the same story about it, of course the investors and businesses on the outside were lost. The black box wasn&rsquo;t just invisible to users; it was fuzzy even inside the company. That was the real thing to solve.</p>
-
-        <h3 class="kf-subhead">Build a first version from my own understanding</h3>
-        <div class="kf-strip" role="group" aria-label="Service blueprint — stage-zero draft, scroll to see all three frames">
-          <figure class="asset-slot kf-strip__item" data-caption="Blueprint — frame 1">
-            <img src="assets/img/kickfurther/blueprint-1.png" alt="Service blueprint, frame 1" />
+        <p class="body">So I went straight at that part: what actually happens when a deal falls out of good standing. I sat with the teams who touched it (product, operations, legal, and customer service) and asked each of them to walk me through it. What I got back were different walkthroughs. Every team described the process a little differently, and no two versions quite lined up.</p>
+        <div class="kf-duo">
+          <figure class="asset-slot kf-duo__item" data-caption="The no-confidence / cancellation flow">
+            <img src="assets/img/kickfurther/cancellation-1.png" alt="Flowchart of the flagged-to-cancelled no-confidence voting flow" />
           </figure>
-          <figure class="asset-slot kf-strip__item" data-caption="Blueprint — frame 2">
-            <img src="assets/img/kickfurther/blueprint-2.png" alt="Service blueprint, frame 2" />
-          </figure>
-          <figure class="asset-slot kf-strip__item" data-caption="Blueprint — frame 3">
-            <img src="assets/img/kickfurther/blueprint-3.png" alt="Service blueprint, frame 3" />
+          <figure class="asset-slot kf-duo__item" data-caption="Walking the flow with the teams">
+            <img src="assets/img/kickfurther/cancellation-2.png" alt="A working session with the teams, reviewing the Kickfurther dashboard together" />
           </figure>
         </div>
-        <p class="body">Rather than wait until I understood everything, I drew a first version myself: a rough &ldquo;stage zero,&rdquo; built from what I&rsquo;d pieced together so far, gaps and all. It&rsquo;s better to put a rough draft in front of people than to wait for a perfect version that never gets finished. I laid it out as a service blueprint: three lanes for the three sides of every deal, the buyer (the investor), the business, and Kickfurther, with a top journey row naming each stage in plain English so any reader knows where they are. And within each lane I tracked two things at every step: the information that side could see, and the actions they could take. That information-and-action split is what made the gaps jump out. You could stop at any stage and see it instantly: &ldquo;the buyer has no information here.&rdquo; &ldquo;Only Kickfurther can act, and nobody told anyone.&rdquo; The blueprint didn&rsquo;t just show the process. It showed exactly where each side went blind or got stuck.</p>
+        <p class="body">That mismatch wasn&rsquo;t noise. It was the finding. If the people running the process couldn&rsquo;t tell the same story about it, of course the investors and businesses on the outside were lost. The black box wasn&rsquo;t just invisible to users; it was fuzzy even inside the company. That was the real thing to solve.</p>
+
+        <h3 class="kf-subhead">Build a first version from my own understanding</h3>
+        <figure class="asset-slot kf-scroll" data-caption="Stage-zero service blueprint — the rough first draft (scroll to explore)">
+          <img src="assets/img/kickfurther/blueprint-1.png" alt="Rough stage-zero service blueprint with open questions across the buyer, business, and Kickfurther lanes" />
+        </figure>
+        <p class="body">Rather than wait until I understood everything, I drew a first version myself: a rough &ldquo;stage zero,&rdquo; built from what I&rsquo;d pieced together so far, gaps and all. It&rsquo;s better to put a rough draft in front of people than to wait for a perfect version that never gets finished. I laid it out as a service blueprint: three lanes for the three sides of every deal, the buyer (the investor), the business, and Kickfurther, with a top journey row naming each stage in plain English so any reader knows where they are. And within each lane I tracked two things at every step: <strong>the information that side could see, and the actions they could take.</strong> That information-and-action split is what made the gaps jump out. You could stop at any stage and see it instantly: &ldquo;the buyer has no information here.&rdquo; &ldquo;Only Kickfurther can act, and nobody told anyone.&rdquo; The blueprint didn&rsquo;t just show the process. It showed exactly where each side went blind or got stuck.</p>
 
         <h3 class="kf-subhead">Take it back to the teams</h3>
-        <p class="body">The stage-zero blueprint was a draft to argue with, not the answer. So I took it back out. First to product and customer service. They verified the day-to-day flow and filled the gaps in what I&rsquo;d drawn. Then to legal and compliance, who were the hardest to get time with, so I reached them last, and they held the most important piece. The later stages weren&rsquo;t arbitrary labels. Settlement Offer 1 and 2, then Collections 1, 2&hellip; n, each carried a precise meaning rooted in the actual laws Kickfurther operated under: a first settlement offer the business puts to a backer vote, a revised second offer if that&rsquo;s rejected, then a collection agency stepping in, its offer re-presented round after round until a settlement is finally reached. Legal and compliance didn&rsquo;t just fill gaps; they explained why the process had the shape it did. That was the input that turned the map from plausible into correct. Pass by pass, the blueprint got closer to reality on all three sides, until it stopped being my interpretation and became the single shared source of truth the whole team could point at. It&rsquo;s the artefact the UX Design Award submission credits with &ldquo;refining workflows and driving consensus&rdquo; across departments.</p>
+        <p class="body">The stage-zero blueprint was a draft to argue with, not the answer. So I took it back out. First to product and customer service. They verified the day-to-day flow and filled the gaps in what I&rsquo;d drawn.</p>
+        <figure class="asset-slot kf-scroll" data-caption="Refined blueprint after product &amp; customer service (scroll to explore)">
+          <img src="assets/img/kickfurther/blueprint-2.png" alt="Refined service blueprint covering out-of-compliance, flagged, and cancelled stages" />
+        </figure>
+        <p class="body">Then to legal and compliance, who were the hardest to get time with, so I reached them last, and they held the most important piece. The later stages weren&rsquo;t arbitrary labels. Settlement Offer 1 and 2, then Collections 1, 2&hellip; n, each carried a precise meaning rooted in the actual laws Kickfurther operated under: a first settlement offer the business puts to a backer vote, a revised second offer if that&rsquo;s rejected, then a collection agency stepping in, its offer re-presented round after round until a settlement is finally reached. Legal and compliance didn&rsquo;t just fill gaps; they explained why the process had the shape it did. That was the input that turned the map from plausible into correct. Pass by pass, the blueprint got closer to reality on all three sides, until it stopped being my interpretation and became the single shared source of truth the whole team could point at. It&rsquo;s the artefact the UX Design Award submission credits with &ldquo;refining workflows and driving consensus&rdquo; across departments.</p>
+        <figure class="asset-slot kf-scroll" data-caption="Final blueprint — settlement offers &amp; collections, defined with legal &amp; compliance (scroll to explore)">
+          <img src="assets/img/kickfurther/blueprint-3.png" alt="Final service blueprint covering settlement offers and collections stages" />
+        </figure>
       </section>
 
       <!-- ===== DELIVERY ===== -->
@@ -221,25 +214,19 @@
         <p class="body">The blueprint gave everyone one version of the truth. The design job was to turn that single process into three views, because each side needed to see the same thing differently. Two rules guided all of it: always show people where things stand, and never leave them at a dead end without a next step.</p>
 
         <h3 class="kf-subhead">For the investor: a window into their money</h3>
-        <figure class="asset-slot diagram diagram--investor" data-caption="Investor deal-detail view">
-          <img src="assets/img/kickfurther/investor.png" alt="Investor deal-detail view with status indicators, a live no-confidence vote, and a financial summary" />
-        </figure>
         <p class="body">I built a deal-detail view that shows exactly where things stand. Three status indicators sit at the top (Meeting Original Commitments, Timely Sales Reports, and Invoices Cleared), giving an at-a-glance read on the deal&rsquo;s health. When a deal is flagged, the screen says why in plain language, listing the exact conditions that tripped it. The No-Confidence vote is shown live, with a bar tracking how much weighted ownership has voted, and the investor can cast their vote right there. A visual lifecycle shows how far along the recovery is, and a financial summary (claims and projected payouts) keeps the money concrete, never abstract. Why: the investor&rsquo;s whole problem was not knowing. Every element answers a question they used to have to email support to ask.</p>
+        <figure class="asset-slot diagram diagram--investor" data-caption="The investor&rsquo;s deal-detail flow across every state">
+          <img src="assets/img/kickfurther/investor.png" alt="Investor deal-detail views with status indicators, a live no-confidence vote, settlement voting, and a financial summary" />
+        </figure>
 
         <h3 class="kf-subhead">For the business: the same status, made actionable</h3>
-        <figure class="asset-slot diagram diagram--business" data-caption="Business dashboard with alert banners and next steps">
-          <img src="assets/img/kickfurther/business.png" alt="Business dashboard showing the same status indicators paired with actionable alert banners" />
+        <figure class="asset-slot diagram diagram--business" data-caption="Business deal-detail view with settlement options">
+          <img src="assets/img/kickfurther/business.png" alt="Business deal-detail view showing the same status indicators paired with clear next-step actions" />
         </figure>
         <p class="body">The business sees the same three indicators, but paired with alert banners that each carry one clear action: submit the pending sales report, clear the overdue payment, post an update. Below them, a plain-language explanation of why you&rsquo;re flagged, what it means, and the exact steps back to good standing. Why: the business didn&rsquo;t need sympathy, it needed to know what to fix, and that answer now lives in the dashboard instead of a support call.</p>
 
         <h3 class="kf-subhead">For the team: the workflow they never had</h3>
-        <figure class="asset-slot diagram diagram--wide" data-caption="The documented workflow / service diagram">
-          <img src="assets/img/kickfurther/team-flow.png" alt="The documented team workflow as a service diagram" />
-        </figure>
         <p class="body">The blueprint itself became the documented workflow, and its logic surfaced in the product: compliance status on the dashboard with action-required items pushed to the top, and overdue tasks marked with a red beacon in the navigation so nothing slipped. Why: the team&rsquo;s problem was that the process lived in people&rsquo;s heads and inboxes. Now it lived in one place, the same place everyone else could see.</p>
-
-        <h3 class="kf-subhead">How the screens got there</h3>
-        <p class="body">None of these views arrived in one pass. The layouts moved through several rounds of wireframes, refined with the team and tightened through testing, until each screen showed the right thing first and every action read clearly.</p>
       </section>
 
       <!-- ===== IMPACT ===== -->
