@@ -198,7 +198,8 @@ a { color: inherit; text-decoration: none; }
 .sidebar__back {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 22.5px;
   text-transform: uppercase;
   letter-spacing: .06em;
   color: var(--grey-500);
@@ -210,7 +211,8 @@ a { color: inherit; text-decoration: none; }
 .section-nav { display: flex; flex-direction: column; gap: 12px; }
 .section-nav__link {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 22.5px;
   text-transform: uppercase;
   letter-spacing: .04em;
   color: var(--grey-400);
@@ -870,7 +872,7 @@ body.kf {
 }
 
 /* ---- Type tuning for the serif/sans pairing ---- */
-.kf .eyebrow { font-size: 15px; color: var(--grey-600); }
+.kf .eyebrow { font-size: 16px; line-height: 22.5px; color: var(--grey-500); }  /* Figma "Mono 16", Grey/500 */
 
 .kf .hero__title {
   font-weight: 400;
@@ -880,9 +882,11 @@ body.kf {
   font-optical-sizing: auto;
 }
 .kf .hero__subtitle {
-  font-size: clamp(19px, 2.2vw, 22px);
-  line-height: 1.45;
-  color: var(--grey-400);
+  font-family: var(--font-body);      /* Sora Regular (Figma hero subtitle) */
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--grey-700);             /* Figma grey/700 #434343 */
   max-width: 680px;
 }
 .kf .section__title {
@@ -921,7 +925,7 @@ body.kf {
   line-height: 26px;
   color: var(--grey-600);
   background: var(--grey-100);
-  border-left: 2px solid #ff910a;      /* Figma tangy-orange/500 */
+  border-left: 2px solid var(--tangy-500);   /* Figma Tangy Orange/500 #ff910a */
   padding: 6px 15px;
 }
 .kf .hmw__item strong { color: var(--grey-700); font-weight: 700; }
@@ -1101,6 +1105,9 @@ body.kf {
 /* Full-width top nav on case-study pages (brand hard-left, links hard-right) */
 .cs .site-nav__rail { display: none; }
 .cs .site-nav__col  { max-width: none; }
+/* End-to-end: let the bar's content span the whole page width (60px gutters),
+   not the centred 1200px wrap — matches the Figma nav frame. */
+.cs .site-nav__inner { max-width: none; }
 
 /* Introduction marketplace diagram */
 .kf .diagram--intro { aspect-ratio: 848 / 372; }
@@ -1114,8 +1121,8 @@ body.kf {
   -webkit-overflow-scrolling: touch;
 }
 .kf .kf-scroll:has(img) {
-  border: 1px solid var(--grey-200);
-  border-radius: 10px;
+  border: 1px solid var(--grey-300);   /* Figma image frame */
+  border-radius: 11px;
   background: var(--grey-40);
 }
 .kf .kf-scroll img {
@@ -1137,8 +1144,51 @@ body.kf {
 
 @media (max-width: 640px) {
   .kf .kf-duo { flex-direction: column; }
+  /* In a column, flex-basis:0 collapses the items to ~0 height (and the
+     framed overflow:hidden then clips the image away) — reset to content height. */
+  .kf .kf-duo__item { flex: 0 0 auto; }
   .kf .kf-scroll img { height: 260px; }
+  /* Hide the case-study side nav (Back + section links) on mobile only */
+  .cs .sidebar { display: none; }
 }
+
+/* ---------------------------------------------------------------------
+   Kickfurther revised layout (Figma) — fractional 3-column grid,
+   framed images, investor gallery. Max page width 1722px.
+   --------------------------------------------------------------------- */
+
+/* Main is now a 3-col grid: sidebar 0.25fr | content 1fr | empty 0.25fr */
+.kf .layout {
+  max-width: 1722px;
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 0.25fr;
+  gap: 32px;
+  align-items: start;
+}
+.kf .sidebar { width: auto; }        /* fills col 1 (fluid) */
+.kf .content { max-width: none; }    /* fills col 2 (fluid) */
+/* Body copy fills the full content column edge-to-edge, like the images
+   (Figma body nodes span the whole column). */
+.kf .body { max-width: none; }
+
+@media (max-width: 900px) {
+  .kf .layout { grid-template-columns: 1fr; gap: 0; }   /* stack on tablet/mobile */
+}
+
+/* Framed images — 1px Grey/300 border + 11px radius (Figma) */
+.kf .asset-slot:has(img) {
+  border: 1px solid var(--grey-300);
+  border-radius: 11px;
+  overflow: hidden;
+  background: transparent;
+  aspect-ratio: auto;
+}
+/* wide scroll maps keep their frame but stay horizontally scrollable */
+.kf .kf-scroll:has(img) { overflow-x: auto; overflow-y: hidden; }
+
+/* Investor gallery (single combined image) */
+.kf .kf-gallery { margin: 8px 0 32px; }
+.kf .asset-slot.is-missing.kf-gallery::after { min-height: 480px; }
 
 
 /* =====================================================================
