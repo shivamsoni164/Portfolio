@@ -102,7 +102,8 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid var(--hairline);
 }
 .site-nav__inner {
-  max-width: var(--wrap-max);
+  /* Uniform nav width across every page (1602 content + 60px gutters). */
+  max-width: calc(1602px + var(--page-pad-x) * 2);
   margin: 0 auto;
   min-height: var(--nav-h);
   padding: 20px var(--page-pad-x) 21px;
@@ -110,13 +111,13 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: var(--gutter);
 }
-/* Empty rail + capped column mirror the page's content layout exactly,
-   so the brand/links line up with the intro + cards below at every width. */
-.site-nav__rail { flex: 0 0 var(--sidebar-w); }
+/* Rail is legacy (old content-aligned nav); the bar now spans the full inner
+   width on all pages, brand hard-left and links hard-right. */
+.site-nav__rail { display: none; }
 .site-nav__col {
   flex: 1 1 auto;
   min-width: 0;
-  max-width: var(--content-max);
+  max-width: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -575,7 +576,8 @@ a { color: inherit; text-decoration: none; }
   margin-top: 40px;
 }
 .site-footer__inner {
-  max-width: var(--wrap-max);
+  /* Match the nav width so the footer aligns with the bar on every page. */
+  max-width: calc(1602px + var(--page-pad-x) * 2);
   margin: 0 auto;
   padding: 26px var(--page-pad-x);
   display: flex;
@@ -1102,12 +1104,8 @@ body.kf {
    Case-study updates (Figma "KF Page" resync)
    ===================================================================== */
 
-/* Full-width top nav on case-study pages (brand hard-left, links hard-right) */
-.cs .site-nav__rail { display: none; }
-.cs .site-nav__col  { max-width: none; }
-/* End-to-end: let the bar's content span the whole page width (60px gutters),
-   not the centred 1200px wrap — matches the Figma nav frame. */
-.cs .site-nav__inner { max-width: none; }
+/* Nav on case-study pages now inherits the uniform base width (see
+   .site-nav__inner) so every page's nav has identical left/right gutters. */
 
 /* Introduction marketplace diagram */
 .kf .diagram--intro { aspect-ratio: 848 / 372; }
