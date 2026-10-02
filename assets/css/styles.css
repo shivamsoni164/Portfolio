@@ -889,7 +889,7 @@ body.kf {
   font-size: 24px;
   line-height: 32px;
   color: var(--grey-700);             /* Figma grey/700 #434343 */
-  max-width: 680px;
+  max-width: none;                    /* fill the content column, like the body copy */
 }
 .kf .section__title {
   font-weight: 400;
@@ -1243,7 +1243,7 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
   font-family: var(--font-body);
   font-size: clamp(14px, 1.4vw, 18px);
   line-height: 1.45;
-  color: var(--grey-500);
+  color: var(--grey-700);
   margin: 0 0 25px;
 }
 .about-body p:last-child { margin-bottom: 0; }
@@ -1252,7 +1252,7 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
   font-family: var(--font-body);
   font-size: clamp(14px, 1.4vw, 18px);
   line-height: 1.45;
-  color: var(--grey-500);
+  color: var(--grey-700);
 }
 
 /* "Lets Chat" button — bordered pill, only the bottom-right corner rounded */
@@ -1280,4 +1280,105 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
   .about-bento__row { height: 150px; flex: 0 0 auto; gap: 4px; }
   .about-bento { gap: 8px; }
   .about-divider { display: none; }
+}
+
+/* =====================================================================
+   Sahayya case study (Figma node 534:6485) — reuses the Kickfurther kit
+   (body.kf) and adds: a shader hero stage, image+text splits, numbered
+   notes, a four-bucket list, and a two-up "what I learned" grid.
+   Scoped to body.sa.
+   ===================================================================== */
+
+/* Thin section divider (Figma "Line 1" after Scope) */
+.sa .sa-rule {
+  border: 0;
+  border-top: 1px solid var(--grey-200);
+  margin: 8px 0 56px;
+  width: 100%;
+}
+
+/* ---- Figma image treatment --------------------------------------- *
+ * Every screenshot sits on a soft grey panel with the image inset,
+ * square corners and no stroke (overrides the kit's framed-image rule). */
+.sa .sa-shot:has(img) {
+  background: var(--grey-100);
+  border: 0;
+  border-radius: 0;
+  padding: 25px;
+}
+.sa .sa-split__media:has(img) {
+  border: 0;
+  border-radius: 0;
+  background: var(--grey-100);   /* grey container sits behind the image only */
+  padding: 20px;
+}
+
+/* ---- Image + text split (The customer, Solution 02 blocks) --------- *
+ * The grey panel spans the whole row; image left, text vertically
+ * centred on the right. */
+.sa .sa-split {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin: 8px 0 32px;
+}
+.sa .sa-split__media { flex: 1 1 0; min-width: 0; margin: 0; }
+.sa .sa-split__text  { flex: 1 1 0; min-width: 0; }
+.sa .sa-split__text .body:last-child { margin-bottom: 0; }
+.sa .asset-slot.is-missing.sa-split__media::after { min-height: 320px; }
+
+/* ---- Hero image: square corners, no stroke (Figma) ---------------- */
+.sa .hero__image:has(img) { border: 0; border-radius: 0; }
+
+/* ---- Full-width screenshots --------------------------------------- */
+.sa .asset-slot.is-missing.sa-shot::after { min-height: 300px; }
+
+/* ---- HMW bars: tighter spacing (match Figma) ---------------------- */
+.sa .hmw { gap: 16px; }
+
+/* ---- Big bold number for numbered notes (Figma: dark sans) --------- */
+.sa .sa-note__num {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--grey-900);
+  margin-bottom: 14px;
+}
+
+/* ---- "What I learned" — two-up grid ------------------------------- */
+.sa .sa-lessons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 24px;
+}
+.sa .sa-lesson__num {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--grey-900);
+  margin-bottom: 36px;
+}
+.sa .sa-lesson__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--grey-900);
+  margin: 0 0 10px;
+}
+
+@media (max-width: 860px) {
+  .sa .sa-split { flex-direction: column; gap: 24px; align-items: stretch; }
+  /* stacked: size to content so the image doesn't collapse to a strip */
+  .sa .sa-split__media, .sa .sa-split__text { flex: 0 0 auto; }
+  .sa .sa-lessons { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+  .sa .sa-note__num, .sa .sa-lesson__num { font-size: 46px; }
+  .sa .sa-split__media:has(img), .sa .sa-shot:has(img) { padding: 16px; }
 }

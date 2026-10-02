@@ -21,14 +21,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Sahayya — Reducing loan processing time from 10 days to 4" />
   <meta property="og:description" content="An end-to-end loan origination system for India's self-employed borrowers. A UX case study by Shivam Soni." />
-  <meta property="og:image" content="assets/img/sahayya/persona-suresh.png" />
+  <meta property="og:image" content="assets/img/sahayya/hero-laptop.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@400;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@300;400;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="cs">
+<body class="kf cs sa">
 
   <!-- ===================== TOP NAV ===================== -->
   <header class="site-nav">
@@ -62,13 +62,17 @@
       <a class="sidebar__back" href="index.html">&larr; Back</a>
       <nav class="section-nav" aria-label="Sections">
         <a href="#overview" class="section-nav__link">Overview</a>
+        <a href="#my-role" class="section-nav__link">My role</a>
+        <a href="#scope" class="section-nav__link">Scope</a>
         <a href="#introduction" class="section-nav__link">Introduction</a>
-        <a href="#customer" class="section-nav__link">The Customer</a>
-        <a href="#research" class="section-nav__link">The Research</a>
-        <a href="#problems" class="section-nav__link">The Problems</a>
+        <a href="#customer" class="section-nav__link">The customer</a>
+        <a href="#discovery" class="section-nav__link">Discovery</a>
+        <a href="#problems" class="section-nav__link">The problems</a>
         <a href="#solution-01" class="section-nav__link">Solution 01</a>
         <a href="#solution-02" class="section-nav__link">Solution 02</a>
         <a href="#solution-03" class="section-nav__link">Solution 03</a>
+        <a href="#impact" class="section-nav__link">The impact</a>
+        <a href="#learnings" class="section-nav__link">What I learned</a>
       </nav>
     </aside>
 
@@ -81,8 +85,8 @@
         <h1 class="hero__title">How did I reduce loan processing time from 10 days to 4?</h1>
         <p class="hero__subtitle">Designing an end-to-end loan origination system for India&rsquo;s self-employed borrowers.</p>
 
-        <figure class="asset-slot hero__image" data-caption="Sahayya app — hero screens">
-          <img src="assets/img/sahayya/hero.png" alt="Sahayya app — two iPhone screens on a lavender field" />
+        <figure class="asset-slot hero__image" data-caption="Sahayya loan-origination app — the applicant stage">
+          <img src="assets/img/sahayya/hero-laptop.png" alt="The Sahayya loan-origination app shown on a laptop, over a soft grey gradient" />
         </figure>
 
         <dl class="meta">
@@ -105,6 +109,24 @@
         </dl>
       </section>
 
+      <!-- ===== MY ROLE ===== -->
+      <section id="my-role" class="section">
+        <p class="eyebrow">My role</p>
+        <h2 class="section__title">More than wireframes.</h2>
+        <p class="body">On paper I was the lead UX designer. In practice it was a lot of things at once. Erich, a colleague, was with me the whole way, but plenty of what I did wasn&rsquo;t drawing screens at all. I spent as much time collaborating with the UI, engineering and testing teams to make sure we were all building the same product in our heads. And under every wireframe there was the harder question I kept circling back to: how do all these modules and services actually fit together, what happens at the edges when one of them breaks, and what information does the other team need to know when working on it?</p>
+        <p class="body">People ask how a designer ended up holding that much of the system. Honestly, it&rsquo;s because I like this kind of mess. Complex system design is the part of the job I enjoy most, so from the first week I showed up to every stakeholder call and every walkthrough, even the ones I didn&rsquo;t need to be in. Slowly I became the person who could hold the entire product in their head, and somewhere in there I became the face of the project.</p>
+        <p class="body"><strong>What I did:</strong> UX research &middot; Business process mapping &middot; UX design &middot; Information architecture &middot; Interaction Model &middot; Design QA</p>
+      </section>
+
+      <!-- ===== SCOPE ===== -->
+      <section id="scope" class="section">
+        <p class="eyebrow">Scope</p>
+        <h2 class="section__title">One question, chosen on purpose</h2>
+        <p class="body">Eighteen months, 350-plus web screens, 125 more on mobile. Far too much for one page, so I won&rsquo;t try to show all of it. Instead I&rsquo;ve pointed this whole case study at a single question: how do you cut the time it takes to process a business loan? It sounds narrow, but it&rsquo;s the one that matters most. A faster loan isn&rsquo;t just a smoother experience. If Sahayya can process a loan faster, it can process more of them, and more loans means more revenue.</p>
+      </section>
+
+      <hr class="sa-rule" />
+
       <!-- ===== INTRODUCTION ===== -->
       <section id="introduction" class="section">
         <p class="eyebrow">Introduction</p>
@@ -114,39 +136,45 @@
 
       <!-- ===== THE CUSTOMER ===== -->
       <section id="customer" class="section">
-        <p class="eyebrow">The Customer</p>
-
-        <figure class="asset-slot" data-caption="Meet Suresh — the borrower">
-          <img src="assets/img/sahayya/persona-suresh.png" alt="Meet Suresh — self-employed, steady, and hard to score. A persona card for Sahayya's borrower." />
-        </figure>
-
-        <h2 class="section__title">The borrower &mdash; a credit score can&rsquo;t see.</h2>
-        <p class="body">Sahayya lends to self-employed borrowers in tier 2&ndash;3 India who need financing quickly to build a house or grow a business. Their income is hard to verify and their credit score rarely reflects how they actually earn, so most banks turn them away. Reaching them means meeting them where they are, on their terms.</p>
+        <p class="eyebrow">The customer</p>
+        <h2 class="section__title">The borrower - a credit score can&rsquo;t see.</h2>
+        <div class="sa-split">
+          <figure class="asset-slot sa-split__media" data-caption="Meet the borrower — self-employed, hard to score">
+            <img src="assets/img/sahayya/persona-suresh.png" alt="Persona of a Sahayya borrower — self-employed, steady income, hard to verify on paper" />
+          </figure>
+          <div class="sa-split__text">
+            <p class="body"><strong>Sahayya</strong> lends to self-employed borrowers in tier 2&ndash;3 India who need financing quickly to build a house or grow a business. Their income is hard to verify and their credit score rarely reflects how they actually earn, so most banks turn them away. Reaching them means meeting them where they are, on their terms.</p>
+          </div>
+        </div>
       </section>
 
-      <!-- ===== THE RESEARCH ===== -->
-      <section id="research" class="section">
-        <p class="eyebrow">The Research</p>
-
-        <figure class="asset-slot diagram" data-caption="Sahayya — typical loan journey (service blueprint)">
-          <img src="assets/img/sahayya/research-journey.png" alt="Sahayya typical loan journey — service blueprint diagram" />
-        </figure>
-
+      <!-- ===== DISCOVERY ===== -->
+      <section id="discovery" class="section">
+        <p class="eyebrow">Discovery</p>
         <h2 class="section__title">The process on paper, and the process in the field.</h2>
-        <p class="body">To design the system, I first had to see how the loan process really ran. I started with a full walkthrough, on paper it was a clean pipeline from lead to disbursal, but underneath it was a web of dependencies: credit-check APIs that failed with no retry, bank-statement analysis that only read PDFs, and a risk check that could reopen a file even after the loan was paid out.</p>
-        <p class="body">The bigger lesson came in the field. I shadowed the Sales Head, as he visited a restaurant owner applying for a loan, and the tidy process diagram fell apart in front of me. He never opened a form. He talked the owner through his sales, seasons and expenses while reading the room to verify the answers, did his sums on paper, and judged the risk on instinct. There was no network, the questions jumped around as the conversation moved, and much of what the loan needed simply wasn&rsquo;t there on the spot.</p>
+
+        <figure class="asset-slot sa-shot" data-caption="The loan pipeline on paper — lead to disbursal">
+          <img src="assets/img/sahayya/research-journey.png" alt="The Sahayya loan pipeline mapped on paper, from lead to disbursal" />
+        </figure>
+        <p class="body">To design the system, I first had to see how the loan really moved. A walkthrough with the Sahayya team revealed a clean pipeline on paper hiding a web of dependencies: credit checks that failed with no retry, bank analysis that only read PDFs, a risk check that could reopen a file even after payout.</p>
+
+        <figure class="asset-slot sa-shot" data-caption="The whole product rebuilt in a spreadsheet — stage by stage">
+          <img src="assets/img/sahayya/product-spreadsheet.png" alt="The entire product rebuilt in a spreadsheet — every stage, sub-stage, and field" />
+        </figure>
+        <p class="body">So before touching a screen, my product manager and I rebuilt the whole product in a spreadsheet. Stage by stage, we listed every field we would capture, every sub-stage, and how each one connected to the next. It was the only way to feel how big this thing really was, and it became the backbone for everything that came after.</p>
+        <p class="body">The field is where the tidy diagram fell apart. I shadowed Prassanna, the Sales Head, visiting a restaurant owner. He never opened a form. He talked the owner through his sales, seasons and expenses while reading the room, did his sums on paper, and judged risk on instinct. No network, the questions jumping around, and half of what the loan needed simply wasn&rsquo;t there on the spot.</p>
       </section>
 
       <!-- ===== THE PROBLEMS ===== -->
       <section id="problems" class="section">
-        <p class="eyebrow">The Problems</p>
+        <p class="eyebrow">The problems</p>
         <h2 class="section__title">Three questions the design had to answer.</h2>
-        <p class="body">The research made the real problem clear. It wasn&rsquo;t speed. A single application held 1,200+ hand-keyed fields, captured offline and out of order across a 13-stage pipeline that leaned on outside services for credit checks, OCR and bank data. One late error could send the file back to the start, and one downed service could stall it completely.</p>
+        <p class="body">If the goal was a faster loan, speed itself was never the thing to design. Speed is just what you get once you clear away everything slowing a file down. And this file had plenty. A single application carried 1,200+ fields, keyed in by hand, offline, and rarely in order, across thirteen stages that all leaned on each other. One wrong entry could bounce the whole thing back to the start.</p>
 
         <ul class="hmw">
-          <li class="hmw__item"><strong>How might we</strong> stop errors at the source when 1,200+ fields are entered by hand?</li>
-          <li class="hmw__item"><strong>How might we</strong> keep a loan moving when a third-party service goes down, so one failed API doesn&rsquo;t stall the whole process?</li>
-          <li class="hmw__item"><strong>How might we</strong> keep 13 interdependent stages consistent and compliant while several people work the same file?</li>
+          <li class="hmw__item"><strong>How might we</strong> stop errors at the source, when 1,200+ fields are entered by hand?</li>
+          <li class="hmw__item"><strong>How might we</strong> keep a loan moving when an outside service is down, without letting missing data slip through to disbursement?</li>
+          <li class="hmw__item"><strong>How might we</strong> stop a late change in one stage from silently breaking every stage that already depended on it?</li>
         </ul>
       </section>
 
@@ -154,49 +182,88 @@
       <section id="solution-01" class="section">
         <p class="eyebrow">Solution 01</p>
         <h2 class="section__title">Stopping bad data at the source.</h2>
-        <p class="body">The goal was simple: let the agent confirm data, not type it.</p>
-        <p class="body"><strong>Verified data, pulled from the document.</strong> We integrated an external service that returns authentic customer details from a scanned IDs. The agent uploads a document, say a driving licence or passport, the service reads its type, and it sends back the record it holds: name, photo, date of birth and address. The agent checks it instead of keying it in, so the data is verified at the source rather than typed by hand.</p>
-        <p class="body"><strong>Defaults fill the rest.</strong> Fields that can be inferred fill themselves. A pincode brings in its city and state, the agent&rsquo;s branch and manager are already set, and the most common product is pre-selected. Every field that fills itself is one less chance to fumble a digit.</p>
+
+        <figure class="asset-slot sa-shot" data-caption="Every input sorted by its source — four buckets">
+          <img src="assets/img/sahayya/data-sources.png" alt="Inputs sorted by source into four buckets: identity, bank statements, credit score, and collateral" />
+        </figure>
+
+        <p class="body">The goal was simple: let the agent confirm data, not type it. But before deciding what to automate, I had to know what we were collecting and where each piece actually lived. So my product manager and I sorted every input by its source, and it fell into four buckets.</p>
+
+        <p class="body"><strong>Identity</strong> &ndash; the borrower uploads a PAN (India&rsquo;s PPSN) or driving licence, it&rsquo;s verified by an OTP to their registered mobile, and the details flow straight into the form. Verified, not typed.</p>
+        <p class="body"><strong>Bank statements</strong> &ndash; digital and machine-readable, so they could be fetched and processed automatically, without an agent keying a single figure.</p>
+        <p class="body"><strong>Credit score</strong> &ndash; digital too, but gated. It needed the borrower&rsquo;s consent to release, and once requested it took around 40 to 45 minutes to come back.</p>
+        <p class="body"><strong>Collateral</strong> &ndash; the one that stayed on paper. Property documents were scanned and uploaded, with OCR lifting the details off the page.</p>
+
+        <p class="body">The pattern was clear: wherever data already lived in a trusted source, the agent should confirm it, not re-enter it. Fields that could be inferred filled themselves too, a pincode bringing in its city and state, the agent&rsquo;s branch and manager already set. Every field we pulled or inferred was one less chance for an error, and one less thing slowing the file down.</p>
+        <p class="body">But three of those buckets came with a catch. Identity, bank statements and the credit score all leaned on outside services, and the credit score alone could take the better part of an hour. The loan now moved only as fast as data we didn&rsquo;t control.</p>
       </section>
 
       <!-- ===== SOLUTION 02 ===== -->
       <section id="solution-02" class="section">
         <p class="eyebrow">Solution 02</p>
-        <h2 class="section__title">Keeping thirteen stages in sync.</h2>
+        <h2 class="section__title">Keeping loans moving when the data isn&rsquo;t there yet.</h2>
+        <p class="body">Solving one problem had quietly made the next. A credit score that takes 45 minutes to come back, a verification service that blinks offline, and suddenly a loan is sitting idle, waiting on data no one at Sahayya controls. I couldn&rsquo;t let that freeze the whole file. But I also couldn&rsquo;t let a loan reach disbursement with a hole in it. So I graded the checks by what was at stake.</p>
 
-        <figure class="asset-slot diagram diagram--matrix" data-caption="Stage dependency matrix — 13 × 13, low → high impact">
-          <img src="assets/img/sahayya/dependency-matrix.png" alt="Stage dependency matrix showing how each stage forces others to reopen" />
-        </figure>
+        <div class="sa-split">
+          <figure class="asset-slot sa-split__media" data-caption="Soft check — mark a pending value and move on">
+            <img src="assets/img/sahayya/asset-checks.png" alt="Asset and document checks screen — a soft check that lets the agent flag a pending value and continue" />
+          </figure>
+          <div class="sa-split__text">
+            <span class="sa-note__num">1.</span>
+            <p class="body"><strong>Soft checks keep the work moving.</strong> Inside a stage, an agent can finish every other step while a slow value catches up. To mark the stage complete, the system looks for that value; if it isn&rsquo;t back yet, the agent notes why, flags it as pending, and moves on. A 45-minute credit pull holds up one field, not the whole application.</p>
+          </div>
+        </div>
 
-        <p class="body"><strong>The 13 stages weren&rsquo;t a checklist; they were a web.</strong> Correcting a KYC detail in the first stage could quietly invalidate a credit decision three stages later, and with several people touching a single file, no one could keep track of all those dependencies in their heads.</p>
-
-        <figure class="asset-slot diagram diagram--wide" data-caption="The 91 reopen rules — status vs. stage">
-          <img src="assets/img/sahayya/rules-table.png" alt="Table mapping every stage against every status with reopen rules" />
-        </figure>
-
-        <p class="body">So I mapped every stage against every status, 13 by 7, and wrote the rule for each one: when this changes, here is what has to reopen. That came to 91 rules, written one by one. Once they were in the system, it did the remembering. When a change triggered a rule, the affected stage reopened automatically, logged the reason, and notified its owner. Compliance stopped depending on anyone&rsquo;s memory and became part of how the system worked.</p>
+        <div class="sa-split">
+          <figure class="asset-slot sa-split__media" data-caption="Hard gate — every required value present before disbursement">
+            <img src="assets/img/sahayya/sql-error.png" alt="A hard gate before disbursement — the system blocks completion until every required value is present" />
+          </figure>
+          <div class="sa-split__text">
+            <span class="sa-note__num">2.</span>
+            <p class="body"><strong>A hard gate before disbursement.</strong> The final step is the exception. Before a loan can be marked ready to disburse, every required value has to be present, no bypass. A gap can wait in the middle; it can never reach the end.</p>
+          </div>
+        </div>
       </section>
 
       <!-- ===== SOLUTION 03 ===== -->
       <section id="solution-03" class="section">
         <p class="eyebrow">Solution 03</p>
-        <h2 class="section__title">Keeping loans moving when a service goes down.</h2>
-        <p class="body">Some data comes from outside services, like the credit score pulled in stage two, and those services go down. Blocking the whole loan for something outside Sahayya&rsquo;s control wasn&rsquo;t acceptable, but neither was letting a loan reach disbursement with data missing. So we graded the checks by what was at stake.</p>
+        <h2 class="section__title">The brain of the system.</h2>
 
-        <!-- Asset checks UI -->
-        <figure class="asset-slot" data-caption="Asset / Document checks — Aadhaar verification">
-          <img src="assets/img/sahayya/asset-checks.png" alt="Asset and document checks screen showing Aadhaar verification: field, logged-in value, API value and new value columns." />
-        </figure>
-        <p class="caption">Soft check &mdash; the user marks it here and the application can move ahead.</p>
-
-        <p class="body"><strong>Soft checks keep the work moving.</strong> Inside a stage, an agent can complete every step even if an outside value hasn&rsquo;t come back yet. To mark the stage as done, the system looks for that value; if it isn&rsquo;t there, the agent records why, marks it as not available, and moves on to the next stage. A downed service slows one field, not the whole file.</p>
-
-        <!-- SQL error dialog -->
-        <figure class="asset-slot error-slot" data-caption="SQL exception — error details">
-          <img src="assets/img/sahayya/sql-error.png" alt="An SQL exception error dialog with error details." />
+        <figure class="asset-slot sa-shot" data-caption="The interaction model — every stage against every status">
+          <img src="assets/img/sahayya/rules-table.png" alt="The interaction model: a sheet mapping every stage against every status, with the rule for each cell" />
         </figure>
 
-        <p class="body"><strong>A hard gate before disbursement.</strong> The final step is the exception. Before a loan can be marked ready for disbursement, every required value has to be present, with no bypass. Missing data can be deferred along the way, but never skipped.</p>
+        <p class="body">The loan never moved in a straight line. A change in stage one didn&rsquo;t stay there; it rippled into two, then three, and on down the chain, quietly leaving later stages working off data that had already changed. For a loan that has to be accurate and compliant, that was the real danger, not a slow file, but a wrong one that still looked finished.</p>
+        <p class="body">I needed a way to guarantee that whoever opened a file, whenever they opened it, was working from current, valid data. So I mapped it. With the whole product in my head, I laid every stage down the rows of a sheet and every status across the columns, then worked through it one cell at a time: in this state, what can the user do, what does the system do, what has to reopen downstream, and how is that enforced? It was slow, deliberate work, a single rule at a time, but it was the only way to tame a process this interdependent.</p>
+        <p class="body">That sheet became the brain of the system. It was the product&rsquo;s interaction model, every action a user could take at every stage and exactly how the system would respond, written precisely enough that the business ran on it, the dev team configured the logic straight from it, and compliance was built into the structure instead of left to memory.</p>
+      </section>
+
+      <!-- ===== THE IMPACT ===== -->
+      <section id="impact" class="section">
+        <p class="eyebrow">The impact</p>
+        <h2 class="section__title">From ten days to four.</h2>
+        <p class="body">Every decision in this case study pointed at the same thing: time. Verified data pulled straight from the source meant less to key in and less to send back for correction. Graduated checks kept a file moving instead of stalling on a credit score that hadn&rsquo;t arrived yet. And the interaction model meant a late change reopened only what it actually touched, instead of quietly corrupting the file or forcing a full re-check. Together, they brought a loan from ten days to four.</p>
+        <p class="body">The real value isn&rsquo;t the speed, it&rsquo;s the capacity it unlocks. When the same team can clear a loan in four days instead of ten, they can process far more loans in the same window without adding a single person, and for a lender, more loans processed is more revenue. The system took the ceiling off how much the existing team could do.</p>
+        <p class="body">And the faster number held up because the system had become hard to get wrong. Agents stopped re-entering data they couldn&rsquo;t trust, credit teams stopped inheriting errors from upstream, and compliance stopped depending on anyone&rsquo;s memory. Speed was the headline; reliability is what made it last.</p>
+      </section>
+
+      <!-- ===== WHAT I LEARNED ===== -->
+      <section id="learnings" class="section">
+        <p class="eyebrow">What I learned</p>
+        <h2 class="section__title">Things I took from this.</h2>
+        <div class="sa-lessons">
+          <div class="sa-lesson">
+            <span class="sa-lesson__num">1.</span>
+            <h3 class="sa-lesson__title">Real life never matches the flowchart.</h3>
+            <p class="body">The loan looked simple on paper. On the ground it was messy: offline, out of order, full of exceptions. I learned to design for how the work actually happens, not how the diagram says it should.</p>
+          </div>
+          <div class="sa-lesson">
+            <span class="sa-lesson__num">2.</span>
+            <h3 class="sa-lesson__title">The most important thing I built was invisible.</h3>
+            <p class="body">It wasn&rsquo;t a screen. It was the set of rules running quietly in the background that kept the whole system correct. Sometimes the best design is the part no one sees.</p>
+          </div>
+        </div>
       </section>
 
     </main>
