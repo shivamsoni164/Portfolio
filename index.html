@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@400;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261002" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261004" />
 </head>
 <body class="hp">
 
@@ -75,7 +75,7 @@
           <div class="hp-case__text">
             <div class="hp-case__head">
               <p class="hp-eyebrow">Enterprise app &bull; UX Design &bull; Fintech</p>
-              <h3 class="hp-case__title">How did I reduce loan processing time from 10 days to 4?</h3>
+              <h3 class="hp-case__title"><span class="hp-case__title-u">How did I reduce loan processing time from 10 days to 4?</span></h3>
               <p class="hp-case__subtitle">Designing an end-to-end loan origination system for India&rsquo;s self-employed borrowers.</p>
             </div>
             <dl class="hp-meta">
@@ -84,8 +84,14 @@
               <div class="hp-meta__col"><dt>Skills</dt><dd>User Research<br />UX Design<br />Service Design</dd></div>
             </dl>
           </div>
-          <figure class="hp-case__media asset-slot" data-caption="Sahayya loan-origination app mockup">
-            <img src="assets/img/sahayya/hero-laptop.png" alt="Sahayya loan-origination app shown on a laptop, over a soft grey gradient" />
+          <figure class="hp-case__media">
+            <!-- Animated "Moving gradient" shader behind the transparent laptop mockup -->
+            <div class="sa-hero-stage" data-moving-gradient>
+              <canvas class="sa-hero-stage__canvas" aria-hidden="true"></canvas>
+              <img class="sa-hero-stage__mockup" src="assets/img/sahayya/hero-mockup.png"
+                   width="2051" height="1426"
+                   alt="Sahayya loan-origination app shown on a laptop" />
+            </div>
           </figure>
         </a>
 
@@ -94,7 +100,7 @@
           <div class="hp-case__text">
             <div class="hp-case__head">
               <p class="hp-eyebrow">B2B Lending app &bull; UX &amp; UI Design &bull; Service Design</p>
-              <h3 class="hp-case__title">How do you build trust in a process no one can see?</h3>
+              <h3 class="hp-case__title"><span class="hp-case__title-u">How do you build trust in a process no one can see?</span></h3>
               <p class="hp-case__subtitle">Redesigning what happens when a funding deal goes wrong, so no one is left in the dark.</p>
             </div>
             <dl class="hp-meta">
@@ -124,5 +130,6 @@
   </footer>
 
   <script src="assets/js/main.js?v=20261002"></script>
+  <script type="module" src="assets/js/moving-gradient.js?v=20261002"></script>
 </body>
 </html>

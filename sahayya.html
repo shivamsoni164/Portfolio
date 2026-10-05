@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@300;400;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261002" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261004" />
 </head>
 <body class="kf cs sa">
 
@@ -85,9 +85,15 @@
         <h1 class="hero__title">How did I reduce loan processing time from 10 days to 4?</h1>
         <p class="hero__subtitle">Designing an end-to-end loan origination system for India&rsquo;s self-employed borrowers.</p>
 
-        <figure class="asset-slot hero__image" data-caption="Sahayya loan-origination app — the applicant stage">
-          <img src="assets/img/sahayya/hero-laptop.png" alt="The Sahayya loan-origination app shown on a laptop, over a soft grey gradient" />
-        </figure>
+        <!-- Hero stage: animated "Moving gradient" WebGPU shader (canvas, behind)
+             + transparent laptop mockup on top. Canvas keeps a CSS gradient
+             fallback for browsers without WebGPU. -->
+        <div class="sa-hero-stage" data-moving-gradient>
+          <canvas class="sa-hero-stage__canvas" aria-hidden="true"></canvas>
+          <img class="sa-hero-stage__mockup" src="assets/img/sahayya/hero-mockup.png"
+               width="2051" height="1426" fetchpriority="high"
+               alt="The Sahayya loan-origination app shown on a laptop" />
+        </div>
 
         <dl class="meta">
           <div class="meta__col">
@@ -281,5 +287,6 @@
   </footer>
 
   <script src="assets/js/main.js?v=20261002"></script>
+  <script type="module" src="assets/js/moving-gradient.js?v=20261002"></script>
 </body>
 </html>
