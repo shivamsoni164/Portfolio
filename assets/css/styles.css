@@ -717,7 +717,23 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.01em;
   color: var(--grey-900);
   margin: 0;
-  transition: color .2s ease;
+}
+/* Hover "underline reveal" on the inline title span (background-image technique,
+   not text-decoration). currentColor matches the text; box-decoration-break keeps
+   the underline continuous per line when the title wraps. */
+.hp-case__title-u {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 90%;
+  background-size: 0 1.5px;
+  transition: background-size 0.583s cubic-bezier(0.16, 1, 0.2, 1);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hp-case:hover .hp-case__title-u,
+.hp-case:focus-visible .hp-case__title-u { background-size: 100% 1.5px; }
+@media (prefers-reduced-motion: reduce) {
+  .hp-case__title-u { transition: none; }
 }
 .hp-case__subtitle {
   font-family: var(--font-body);
@@ -742,7 +758,6 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.33;
   color: var(--grey-400);
 }
-.hp-case:hover .hp-case__title { color: var(--accent); }
 .hp-case:focus-visible { outline: 2px solid var(--accent); }
 
 /* ---- Case media (single browser-mockup image supplied by the designer) ---- */
@@ -1327,8 +1342,51 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
 .sa .sa-split__text .body:last-child { margin-bottom: 0; }
 .sa .asset-slot.is-missing.sa-split__media::after { min-height: 320px; }
 
-/* ---- Hero image: square corners, no stroke (Figma) ---------------- */
-.sa .hero__image:has(img) { border: 0; border-radius: 0; }
+/* ---- Hero stage: animated shader gradient + laptop mockup ---------- *
+ * Container clips the canvas; mockup (transparent PNG) sits on top so the
+ * moving gradient shows around and behind it. Square corners (match Figma).
+ * aspect-ratio matches the mockup so the laptop lands exactly as before.
+ * Un-scoped so it works in the Sahayya hero AND the home Sahayya card. */
+.sa-hero-stage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2051 / 1426;
+  margin: 8px 0 40px;
+}
+.sa-hero-stage__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  display: block;
+  pointer-events: none;                 /* never blocks clicks */
+  /* Fallback shown until WebGPU starts, and if it's unsupported.
+     Matches the Figma gradient palette. */
+  background: linear-gradient(135deg, #d7ddef 0%, #f5f5f5 50%, #d1cbfd 100%);
+}
+.sa-hero-stage__mockup {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;                         /* preserve aspect; no distortion */
+}
+/* In the home project card the stage has no extra vertical margin. */
+.hp-case__media .sa-hero-stage { margin: 0; }
+/* Home card hover: only the mockup zooms 5%; the shader canvas stays still.
+   The stage's overflow:hidden clips the zoomed image to the container. */
+.hp-case__media .sa-hero-stage__mockup {
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.2, 1);
+  will-change: transform;
+}
+.hp-case:hover .hp-case__media .sa-hero-stage__mockup,
+.hp-case:focus-visible .hp-case__media .sa-hero-stage__mockup { transform: scale(1.05); }
+@media (prefers-reduced-motion: reduce) {
+  .hp-case__media .sa-hero-stage__mockup { transition: none; }
+}
 
 /* ---- Full-width screenshots --------------------------------------- */
 .sa .asset-slot.is-missing.sa-shot::after { min-height: 300px; }
