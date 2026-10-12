@@ -1452,23 +1452,26 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
 /* =====================================================================
    Agentic Design Systems (Figma node 728:6952) — reuses the case-study kit
    (body.kf) and the grey-panel screenshots (.sa-shot). Adds the Setup cards
-   and the 3-up Impact block. Scoped to body.ag so no other page is affected.
-   Spacing follows the Figma frame: 60px between sections, 30px body leading.
+   and the 3-up Impact block. Spacing follows the Figma frame: 60px between
+   sections, 30px body leading. The shared case-study rules (section rhythm, body
+   copy, hero header, screenshot panels, and their phone versions) are scoped to
+   body.cs so Sahayya, Kickfurther and this page stay in step; the rest is body.ag.
    ===================================================================== */
 
 /* Section rhythm: 60px gap. flow-root keeps a panel's bottom margin inside the
    section (Figma: 20px panel padding + 60px gap = 80px before the next title). */
-.ag .section { margin-bottom: 60px; display: flow-root; }
-.ag .section:last-child { margin-bottom: 0; }
+.cs .section { margin-bottom: 60px; display: flow-root; }
+.cs .section:last-child { margin-bottom: 0; }
 
 /* Body copy: Sora Light 18 / 30 (Figma "Body Regular 22") */
-.ag .body { line-height: 30px; margin: 0 0 20px; }
+.cs .body { line-height: 30px; margin: 0 0 20px; }
+.cs .body:last-child { margin-bottom: 0; }
 
 /* Hero header (Figma): eyebrow 22.5 / title 48 (59px line box, -0.01em) / subtitle 24/32,
    with 10px eyebrow→title, 20px title→subtitle and 32px subtitle→image gaps. */
-.ag .eyebrow { margin: 0 0 10px; }
-.ag .hero__title { line-height: 1.229; letter-spacing: -0.01em; margin: 0 0 20px; }
-.ag .hero__subtitle { margin: 0 0 32px; }
+.cs .eyebrow { margin: 0 0 10px; }
+.cs .hero__title { line-height: 1.229; letter-spacing: -0.01em; margin: 0 0 20px; }
+.cs .hero__subtitle { margin: 0 0 32px; }
 /* Hero image: plain square-cornered slot */
 .ag .hero__image { margin: 0; }
 .ag .hero__image:has(img) { border: 0; border-radius: 0; }
@@ -1476,7 +1479,12 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
 .ag .asset-slot.is-missing.hero__image::after { min-height: 100%; height: 100%; }
 
 /* Screenshot panels: 40px above (20 frame gap + 20 inset), 20px below */
-.ag .sa-shot { margin: 40px 0 20px; }
+.cs .sa-shot { margin: 40px 0 20px; }
+
+/* Sahayya: divider after Scope = 60px above, 1px line, 59px below (Figma: 60 + line + 60);
+   hero image to the Role/Timeline row = 32px (8px of it is the meta row's own padding). */
+.sa .sa-rule { margin: 0 0 59px; }
+.sa .sa-hero-stage { margin: 8px 0 24px; }
 
 /* ---- Setup cards ---------------------------------------------------- */
 .ag-cards {
@@ -1607,17 +1615,22 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
 
 /* ---- Phone (Figma "Home Page - Mobile", 390 wide) ---- */
 @media (max-width: 640px) {
-  .ag .section { margin-bottom: 25px; }
-  .ag .section__title { font-size: 24px; line-height: 34px; letter-spacing: -1.04px; margin: 0 0 15px; }
-  .ag .body { font-weight: 400; font-size: 14px; line-height: 24px; letter-spacing: 0.07px; color: var(--grey-600); margin: 0 0 15px; }
+  .cs .section { margin-bottom: 25px; }
+  .cs .section__title { font-size: 24px; line-height: 34px; letter-spacing: -1.04px; margin: 0 0 15px; }
+  .cs .body { font-weight: 400; font-size: 14px; line-height: 24px; letter-spacing: 0.07px; color: var(--grey-600); margin: 0 0 15px; }
 
   /* hero header */
-  .ag .hero__title { font-size: 24px; letter-spacing: -0.24px; margin: 0 0 20px; }
-  .ag .hero__subtitle { font-size: 18px; line-height: 28px; color: var(--grey-600); margin: 0 0 20px; }
+  .cs .hero__title { font-size: 24px; letter-spacing: -0.24px; margin: 0 0 20px; }
+  .cs .hero__subtitle { font-size: 18px; line-height: 28px; color: var(--grey-600); margin: 0 0 20px; }
 
   /* image panels: 5px inset, 20px above / 5px below */
-  .ag .sa-shot { margin: 20px 0 5px; }
-  .ag .sa-shot:has(img) { padding: 5px; }
+  .cs .sa-shot { margin: 20px 0 5px; }
+  .cs .sa-shot:has(img) { padding: 5px; }
+  .sa .sa-split__media:has(img) { padding: 5px; }
+  /* framed images on every case study share the same phone rhythm: 20px above, 5px below */
+  .cs .content .asset-slot:not(.hero__image):not(.kf-duo__item),
+  .cs .kf-scroll, .cs .kf-gallery, .cs .kf-duo { margin: 20px 0 5px; }
+  .sa .sa-rule { margin: 0 0 24px; }
 
   /* Setup cards */
   .ag-cards { margin-top: 15px; }
