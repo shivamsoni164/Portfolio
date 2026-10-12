@@ -46,3 +46,27 @@ the compliance / red-alert widget, and the 50% / 40% stat tiles.
 | `photo-4.png` | Hillside sunset                     | Row 2, left (299) |
 | `photo-5.png` | Coffee in hand                      | Row 2, middle     |
 | `photo-6.png` | Workday office sign                 | Row 2, right (304)|
+
+## Agentic Design Systems — `assets/img/agentic-ds/` (desktop frame `728:6952`, mobile frame `742:9811`)
+
+Page: `agentic-ds.html`. Export each node at **PNG, 2×** with these exact names
+(until they're added each slot shows a labelled placeholder).
+
+| File                    | What it is                                         | Figma node |
+|-------------------------|----------------------------------------------------|------------|
+| `wireframe.png`         | Annotated wireframe — "Where my design time goes"  | `731:9516` |
+| `design-system-docs.png`| Design-system documentation — "The Idea"           | `732:9618` |
+| `rules-file.png`        | The rulebook file the agent reads — "Experiment"   | `728:7059` |
+| `result-screen.png`     | The screen the agent built — "Result"              | `730:9504` |
+
+The hero ("Scene 2", `728:6985`, 1025 × 713) is a silent looping video, not an image:
+`assets/video/agentic-ds/hero.mp4` plus a still `hero-poster.jpg` (first-frame
+fallback, also shown for reduced-motion visitors). Keep the mp4 under ~10 MB
+(see `assets/video/agentic-ds/README.md`).
+
+Recreated in HTML/CSS (no export needed): the three Setup cards and their icons,
+the three numbered Learning columns, and the "Try the agent yourself" banner
+(shown twice: after the hero and before the footer; both link to the
+Agentic-Carbon-Design-System GitHub repo and open in a new tab).
+
+The same images are used at every width; the mobile frame only changes sizes and spacing.
