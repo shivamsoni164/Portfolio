@@ -20,6 +20,7 @@ Portfolio-2/
 ├── index.html                 # Home / selected work (site entry)
 ├── sahayya.html               # Sahayya case study
 ├── kickfurther.html           # Kickfurther case study
+├── agentic-ds.html            # Agentic Design Systems (AI experiment)
 ├── assets/
 │   ├── css/
 │   │   ├── styles.css         # shared base: tokens, layout, components, responsive

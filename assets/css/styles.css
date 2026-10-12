@@ -682,17 +682,19 @@ a { color: inherit; text-decoration: none; }
 
 /* ---- Work ---- */
 .hp-work { display: flex; flex-direction: column; gap: 60px; padding-top: 40px; }
+/* Each project is a grey card (Figma: grey-100 panel, 30px padding, 60px text/image gap) */
 .hp-case {
   display: flex;
   gap: 60px;
   align-items: flex-start;
+  padding: 30px;
+  background: var(--grey-100);
   text-decoration: none;
   color: inherit;
-  border-radius: 12px;
-  outline-offset: 8px;
+  outline-offset: 4px;
 }
 .hp-case__text {
-  flex: 642 1 0;
+  flex: 582 1 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -713,7 +715,7 @@ a { color: inherit; text-decoration: none; }
   font-optical-sizing: auto;
   font-weight: 400;
   font-size: clamp(22px, 2.6vw, 34px);
-  line-height: 1.14;
+  line-height: 1.235;
   letter-spacing: -0.01em;
   color: var(--grey-900);
   margin: 0;
@@ -737,8 +739,9 @@ a { color: inherit; text-decoration: none; }
 }
 .hp-case__subtitle {
   font-family: var(--font-body);
+  font-weight: 300;
   font-size: clamp(14px, 1.15vw, 18px);
-  line-height: 1.45;
+  line-height: 1.667;
   color: var(--grey-700);
   margin: 0;
 }
@@ -754,10 +757,12 @@ a { color: inherit; text-decoration: none; }
 .hp-meta__col dd {
   margin: 0;
   font-family: var(--font-body);
-  font-size: clamp(14px, 1.15vw, 18px);
-  line-height: 1.33;
-  color: var(--grey-400);
+  font-size: clamp(14px, 1.15vw, 16px);
+  line-height: 24px;
+  color: var(--grey-500);
 }
+.hp-meta__col dd span { display: block; }
+.hp-meta__col dd span + span { margin-top: 2px; }
 .hp-case:focus-visible { outline: 2px solid var(--accent); }
 
 /* ---- Case media (single browser-mockup image supplied by the designer) ---- */
@@ -768,6 +773,9 @@ a { color: inherit; text-decoration: none; }
 /* Placeholder box until the mockup image is uploaded */
 .hp-case__media.is-missing { aspect-ratio: 1600 / 1000; background: var(--grey-100); }
 .hp-case__media.is-missing::after { min-height: 200px; }
+/* Agentic Design System card: a plain screen image (white, square top, 11.25px bottom corners) */
+.hp-case__media--screen { background: #fff; border-radius: 0 0 11.25px 11.25px; overflow: hidden; }
+.hp-case__media--screen img { aspect-ratio: 900 / 371; object-fit: cover; }
 
 /* Stack to a single column on tablet + mobile; laptop mockup goes on top */
 @media (max-width: 1279px) {
@@ -783,6 +791,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 640px) {
   /* Meta columns shrink so Role + Timeline still sit side by side on phones */
   .hp-meta__col { width: auto; min-width: 108px; }
+  .hp-case { padding: 20px; }
 }
 
 /* ========================================================= ANIMATION */
@@ -1211,7 +1220,6 @@ body.kf {
 body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
 
 .about-stack { display: flex; flex-direction: column; gap: 44px; width: 100%; }
-.about-divider { border: 0; border-top: 1px solid var(--hairline); margin: 0; width: 100%; }
 
 /* Photo bento — 768 × 428, two rows of three (widths per Figma). */
 .about-bento {
@@ -1294,7 +1302,6 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
   .about-bento { aspect-ratio: auto; }
   .about-bento__row { height: 150px; flex: 0 0 auto; gap: 4px; }
   .about-bento { gap: 8px; }
-  .about-divider { display: none; }
 }
 
 /* =====================================================================
@@ -1440,3 +1447,275 @@ body.about .home-layout { padding-top: 47px; padding-bottom: 48px; }
   .sa .sa-note__num, .sa .sa-lesson__num { font-size: 46px; }
   .sa .sa-split__media:has(img), .sa .sa-shot:has(img) { padding: 16px; }
 }
+
+
+/* =====================================================================
+   Agentic Design Systems (Figma node 728:6952) — reuses the case-study kit
+   (body.kf) and the grey-panel screenshots (.sa-shot). Adds the Setup cards
+   and the 3-up Impact block. Scoped to body.ag so no other page is affected.
+   Spacing follows the Figma frame: 60px between sections, 30px body leading.
+   ===================================================================== */
+
+/* Section rhythm: 60px gap. flow-root keeps a panel's bottom margin inside the
+   section (Figma: 20px panel padding + 60px gap = 80px before the next title). */
+.ag .section { margin-bottom: 60px; display: flow-root; }
+.ag .section:last-child { margin-bottom: 0; }
+
+/* Body copy: Sora Light 18 / 30 (Figma "Body Regular 22") */
+.ag .body { line-height: 30px; margin: 0 0 20px; }
+
+/* Hero header (Figma): eyebrow 22.5 / title 48 (59px line box, -0.01em) / subtitle 24/32,
+   with 10px eyebrow→title, 20px title→subtitle and 32px subtitle→image gaps. */
+.ag .eyebrow { margin: 0 0 10px; }
+.ag .hero__title { line-height: 1.229; letter-spacing: -0.01em; margin: 0 0 20px; }
+.ag .hero__subtitle { margin: 0 0 32px; }
+/* Hero image: plain square-cornered slot */
+.ag .hero__image { margin: 0; }
+.ag .hero__image:has(img) { border: 0; border-radius: 0; }
+.ag .hero__image.is-missing { aspect-ratio: 16 / 9; }
+.ag .asset-slot.is-missing.hero__image::after { min-height: 100%; height: 100%; }
+
+/* Screenshot panels: 40px above (20 frame gap + 20 inset), 20px below */
+.ag .sa-shot { margin: 40px 0 20px; }
+
+/* ---- Setup cards ---------------------------------------------------- */
+.ag-cards {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+.ag-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px;
+  background: var(--grey-100);
+  border: 1px solid #ededed;
+  border-radius: 10px;
+}
+.ag-card__icon { width: 40px; height: 40px; flex: 0 0 auto; display: block; }
+.ag-card__text { display: flex; flex-direction: column; gap: 10px; }
+.ag-card__title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 28px;
+  color: var(--grey-700);
+  margin: 0;
+}
+.ag-card__desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 30px;
+  color: var(--grey-600);
+  margin: 0;
+}
+
+/* ---- Impact: three numbered columns -------------------------------- */
+.ag-lessons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+}
+.ag-lesson {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 0;
+  color: var(--grey-700);
+}
+.ag-lesson__num {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 1.2667;        /* Figma text box is 76px tall at 60px */
+}
+.ag-lesson__text { display: flex; flex-direction: column; gap: 10px; }
+.ag-lesson__title,
+.ag-lesson__desc {
+  font-family: var(--font-body);
+  font-size: 22px;
+  line-height: 32px;
+  margin: 0;
+}
+.ag-lesson__title { font-weight: 600; }
+.ag-lesson__desc { font-weight: 300; }
+
+/* ---- Banner: "Try the agent yourself" (Figma 746:10086 / mobile 746:10113) ---- */
+.ag-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px;
+  margin: 0 0 60px;
+  background: var(--grey-200);
+  border: 1px solid var(--grey-300);
+}
+.ag-banner:last-child { margin-bottom: 0; }
+.ag-banner__text { display: flex; flex-direction: column; gap: 7px; width: 100%; }
+.ag-banner__title {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.229;
+  color: var(--grey-800);
+  margin: 0;
+}
+/* "agent" is set larger than the rest of the title (Figma: 28px vs 24px) */
+.ag-banner__em { font-size: 28px; }
+.ag-banner__desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+  color: var(--grey-700);
+  margin: 0;
+}
+.ag-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--grey-900);
+  color: var(--grey-40);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .18s ease, color .18s ease;
+}
+.ag-banner__icon { width: 21px; height: 21px; flex: 0 0 auto; display: block; object-fit: contain; }
+.ag-banner__btn:hover { background: var(--grey-40); color: var(--grey-900); box-shadow: inset 0 0 0 1px var(--grey-900); }
+.ag-banner__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .ag-banner__btn { transition: none; } }
+
+/* ---- Stacked layout (large phones / small tablets) ---- */
+@media (max-width: 760px) {
+  .ag-cards { grid-template-columns: 1fr; gap: 20px; }
+  .ag-lessons { grid-template-columns: 1fr; gap: 15px; }
+  .ag-lesson { padding: 10px 0; gap: 20px; }
+}
+
+/* ---- Phone (Figma "Home Page - Mobile", 390 wide) ---- */
+@media (max-width: 640px) {
+  .ag .section { margin-bottom: 25px; }
+  .ag .section__title { font-size: 24px; line-height: 34px; letter-spacing: -1.04px; margin: 0 0 15px; }
+  .ag .body { font-weight: 400; font-size: 14px; line-height: 24px; letter-spacing: 0.07px; color: var(--grey-600); margin: 0 0 15px; }
+
+  /* hero header */
+  .ag .hero__title { font-size: 24px; letter-spacing: -0.24px; margin: 0 0 20px; }
+  .ag .hero__subtitle { font-size: 18px; line-height: 28px; color: var(--grey-600); margin: 0 0 20px; }
+
+  /* image panels: 5px inset, 20px above / 5px below */
+  .ag .sa-shot { margin: 20px 0 5px; }
+  .ag .sa-shot:has(img) { padding: 5px; }
+
+  /* Setup cards */
+  .ag-cards { margin-top: 15px; }
+  .ag-card__title { font-size: 18px; color: var(--grey-600); }
+  .ag-card__desc { font-size: 14px; line-height: 24px; letter-spacing: 0.07px; }
+
+  /* Learning columns */
+  .ag-lessons { margin-top: 0; }
+  .ag-lesson { color: var(--grey-600); }
+  .ag-lesson__num { font-size: 40px; line-height: 1.25; }
+  .ag-lesson__title { font-size: 18px; line-height: 32px; }
+  .ag-lesson__desc { font-weight: 400; font-size: 14px; line-height: 24px; letter-spacing: 0.07px; }
+
+  /* banner */
+  .ag-banner { padding: 10px; gap: 18px; margin-bottom: 25px; }
+  .ag-banner__title { font-size: 22px; }
+  .ag-banner__em { font-size: inherit; }
+  .ag-banner__desc { font-size: 16px; line-height: 22px; }
+  .ag-banner__btn { padding: 10.08px 14.4px; gap: 7.2px; font-size: 12.96px; line-height: 15.84px; }
+  .ag-banner__icon { width: 15.12px; height: 15.12px; }
+}
+
+/* Hero video (silent autoplay loop): fills the Figma 1026 x 526 slot, cropped to fit */
+.ag .hero__image:has(video), .ag .hero__image.has-fallback { border: 0; border-radius: 0; background: transparent; }
+.hero__video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }   /* same shape as the 1920x1080 recording */
+.asset-slot.is-missing video { display: none; }
+.hero__fallback { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.hero__fallback[hidden], .hero__video[hidden], .vc__btn[hidden] { display: none; }
+
+/* ---- Hero video controls: slim dark bar (matches the banner button), flush at the bottom ---- */
+.vc {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 44px;
+  padding-right: 6px;
+  background: rgba(26, 26, 26, 0.88);
+  color: var(--grey-40);
+}
+.vc[hidden] { display: none; }
+.vc__btn {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease;
+}
+.vc__btn:hover { background: var(--grey-40); color: var(--grey-900); }
+.vc__btn:focus-visible, .vc__seek:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.vc__icon { display: none; width: 24px; height: 24px; }
+.vc[data-state="paused"]  .vc__icon--play,
+.vc[data-state="playing"] .vc__icon--pause,
+.vc[data-state="ended"]   .vc__icon--replay,
+.vc[data-muted="true"]    .vc__icon--mute,
+.vc[data-muted="false"]   .vc__icon--volume { display: block; }
+.vc__time {
+  flex: 0 0 auto;
+  min-width: 9ch;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+}
+.hero__video { cursor: pointer; }
+
+/* timeline */
+.vc__seek {
+  --p: 0%;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 24px;
+  margin: 0 8px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.vc__seek::-webkit-slider-runnable-track { height: 2px; background: linear-gradient(to right, var(--grey-40) var(--p), rgba(251, 251, 251, .35) var(--p)); }
+.vc__seek::-moz-range-track { height: 2px; background: rgba(251, 251, 251, .35); }
+.vc__seek::-moz-range-progress { height: 2px; background: var(--grey-40); }
+.vc__seek::-webkit-slider-thumb { -webkit-appearance: none; width: 10px; height: 10px; margin-top: -4px; background: var(--grey-40); border: 0; border-radius: 0; }
+.vc__seek::-moz-range-thumb { width: 10px; height: 10px; background: var(--grey-40); border: 0; border-radius: 0; }
+
+@media (max-width: 640px) {
+  .vc { height: 40px; padding-right: 4px; }
+  .vc__btn { width: 40px; height: 40px; }
+  .vc__time { font-size: 12px; min-width: 8ch; }
+  .vc__seek { margin: 0 6px; }
+}
+@media (prefers-reduced-motion: reduce) { .vc__btn { transition: none; } }

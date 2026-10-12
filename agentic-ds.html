@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ylozhf8jq7");
+  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <title>Agentic Design Systems — Shivam Soni</title>
+  <meta name="description" content="AI experiment: rewriting a design system's rules for an AI agent so it turns wireframes into working, on-brand front-end screens." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Agentic Design Systems — Turning wireframes into working screens, with AI" />
+  <meta property="og:description" content="An AI experiment by Shivam Soni: a design system written for an agent, so it builds front-end screens from wireframes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Mukta:wght@400;500;600;700&family=Sora:wght@300;400;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261016" />
+</head>
+<!-- kf cs sa = shared case-study kit + grey-panel screenshots; ag = this page's Figma-specific styles -->
+<body class="kf cs sa ag">
+
+  <!-- ===================== TOP NAV ===================== -->
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <div class="site-nav__rail" aria-hidden="true"></div>
+      <div class="site-nav__col">
+      <a class="brand" href="index.html">
+        <span class="brand__name">Shivam Soni</span>
+        <span class="brand__role">Product Designer</span>
+      </a>
+      <nav class="site-nav__nav" aria-label="Primary">
+        <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span>Work</span>
+          <svg class="site-nav__caret" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="site-nav__links" id="nav-menu">
+          <a href="index.html" class="is-current">Work</a>
+          <a href="about.html">About</a>
+          <a href="https://drive.google.com/file/d/1szhlKCJLZO5032RSUDJxsAey4lzY45WD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Resume</a>
+        </div>
+      </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN LAYOUT ===================== -->
+  <div class="layout">
+
+    <!-- ---- Sticky sidebar ---- -->
+    <aside class="sidebar">
+      <a class="sidebar__back" href="index.html">&larr; Back</a>
+      <nav class="section-nav" aria-label="Sections">
+        <a href="#overview" class="section-nav__link">Overview</a>
+        <a href="#background" class="section-nav__link">Background</a>
+        <a href="#the-idea" class="section-nav__link">The idea</a>
+        <a href="#setup" class="section-nav__link">Setup</a>
+        <a href="#experiment" class="section-nav__link">Experiment</a>
+        <a href="#result" class="section-nav__link">Result</a>
+        <a href="#learning" class="section-nav__link">Learning</a>
+      </nav>
+    </aside>
+
+    <!-- ---- Content column ---- -->
+    <main class="content">
+
+      <!-- ===== HERO / OVERVIEW ===== -->
+      <section id="overview" class="section hero">
+        <p class="eyebrow">AI Experiment &bull; UI &amp; Frontend</p>
+        <h1 class="hero__title">Agentic Design Systems</h1>
+        <p class="hero__subtitle">Turning wireframes into working screens, with AI.</p>
+
+        <!-- Hero video: starts muted (browsers only autoplay muted video) and plays once.
+             The custom bar below gives play/pause, a timeline and mute/unmute; main.js
+             removes the native `controls` fallback and wires everything up. -->
+        <figure class="asset-slot hero__image" data-caption="Agentic Design Systems — hero video">
+          <video class="hero__video" autoplay muted playsinline controls preload="metadata"
+                 poster="assets/video/agentic-ds/hero-poster.jpg"
+                 aria-label="Agentic Design Systems hero video">
+            <source src="assets/video/agentic-ds/hero.mp4" type="video/mp4" />
+          </video>
+          <!-- Same image as the poster: shown in place of the video if it can't load -->
+          <img class="hero__fallback" src="assets/video/agentic-ds/hero-poster.jpg" alt="Agentic Design Systems: a wireframe on the left becomes a Carbon design system screen on the right" hidden />
+          <div class="vc" role="group" aria-label="Video controls" data-state="paused" data-muted="true" hidden>
+            <button class="vc__btn vc__play" type="button" aria-label="Play">
+              <!-- The recording has no audio, so the mute button is hidden (remove `hidden` if a soundtrack is added).
+               icons drawn in the css.gg style (24px grid): play, pause, replay -->
+              <svg class="vc__icon vc__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6L19 12 8 5.2Z" fill="currentColor"/></svg>
+              <svg class="vc__icon vc__icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14H6V5Zm8 0h4v14h-4V5Z" fill="currentColor"/></svg>
+              <svg class="vc__icon vc__icon--replay" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.5-5.8" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><path d="M4 4v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+            </button>
+            <input class="vc__seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Seek" />
+            <span class="vc__time" aria-hidden="true">0:00 / 0:00</span>
+            <button class="vc__btn vc__mute" type="button" aria-label="Unmute" hidden>
+              <svg class="vc__icon vc__icon--mute" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path d="m16.5 9.5 5 5m0-5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+              <svg class="vc__icon vc__icon--volume" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path d="M16.5 8.8a4.6 4.6 0 0 1 0 6.4M19 6.2a8.2 8.2 0 0 1 0 11.6" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>
+            </button>
+          </div>
+        </figure>
+      </section>
+
+      <!-- ===== BANNER: try the agent ===== -->
+      <aside class="ag-banner" aria-label="Try the agent yourself">
+        <div class="ag-banner__text">
+          <h2 class="ag-banner__title">Try the <span class="ag-banner__em">agent</span> yourself</h2>
+          <p class="ag-banner__desc">Clone the repo, drop in a wireframe, and watch it build a Carbon screen</p>
+        </div>
+        <a class="ag-banner__btn" href="https://github.com/shivamsoni164/Agentic-Carbon-Design-System" target="_blank" rel="noopener noreferrer">
+          <span>Try now</span>
+          <img class="ag-banner__icon" src="assets/img/agentic-ds/github.png" width="21" height="21" alt="" />
+          <span class="visually-hidden">(opens the GitHub repository in a new tab)</span>
+        </a>
+      </aside>
+
+      <!-- ===== BACKGROUND ===== -->
+      <section id="background" class="section">
+        <h2 class="section__title">Where my design time actually goes</h2>
+        <p class="body">I like solving a problem completely: every state, every edge case, every error. But on data-heavy products, much of my time went into applying design system rules, screen after screen. Necessary, but not problem-solving. So I wondered: could the rules do the assembly, freeing me for users and testing?</p>
+
+        <figure class="asset-slot sa-shot" data-caption="The original wireframe, annotated with sticky notes">
+          <img src="assets/img/agentic-ds/wireframe.png" alt="A wireframe of a product screen covered in sticky notes that capture design-system rules" />
+        </figure>
+      </section>
+
+      <!-- ===== THE IDEA ===== -->
+      <section id="the-idea" class="section">
+        <h2 class="section__title">The Idea</h2>
+        <p class="body">The design system was well documented. Every rule, every component, how to use it, its states and variations. All written from a perspective of a designer to design screen in future.<br /><br />Which made me wonder. What if I rewrote those same rules for an AI agent, in a form it can understand and act on?</p>
+
+        <figure class="asset-slot sa-shot" data-caption="The design system documentation">
+          <img src="assets/img/agentic-ds/design-system-docs.png" alt="The design system documentation: grid and type scale, colour palette, status chips and form-input states" />
+        </figure>
+      </section>
+
+      <!-- ===== SETUP ===== -->
+      <section id="setup" class="section">
+        <h2 class="section__title">Setup</h2>
+        <p class="body">I connected the agent to IBM Carbon&rsquo;s own Storybook, where every component, state and variation is documented and open on the web. Then I wrote the rulebook it reads before building anything.</p>
+
+        <ul class="ag-cards">
+          <li class="ag-card">
+            <svg class="ag-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="20" fill="#814994" />
+              <g fill="#fff">
+                <rect x="17.2" y="10.2" width="5.6" height="5.6" rx="1.2" transform="rotate(45 20 13)" />
+                <rect x="24.2" y="17.2" width="5.6" height="5.6" rx="1.2" transform="rotate(45 27 20)" />
+                <rect x="17.2" y="24.2" width="5.6" height="5.6" rx="1.2" transform="rotate(45 20 27)" />
+                <rect x="10.2" y="17.2" width="5.6" height="5.6" rx="1.2" transform="rotate(45 13 20)" />
+              </g>
+            </svg>
+            <div class="ag-card__text">
+              <h3 class="ag-card__title">Live components</h3>
+              <p class="ag-card__desc">All 137 Carbon components, composed into my Storybook from IBM&rsquo;s own.</p>
+            </div>
+          </li>
+          <li class="ag-card">
+            <svg class="ag-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="20" fill="#814994" />
+              <path d="M17 14.5 11.5 20 17 25.5M23 14.5 28.5 20 23 25.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="ag-card__text">
+              <h3 class="ag-card__title">Tokens and rules</h3>
+              <p class="ag-card__desc">Every colour, spacing and type token, plus a list of what never to do.</p>
+            </div>
+          </li>
+          <li class="ag-card">
+            <svg class="ag-card__icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="20" fill="#814994" />
+              <rect x="11.5" y="12.5" width="17" height="15" rx="2.5" stroke="#fff" stroke-width="2" />
+              <path d="m15.5 17.5 3 2.5-3 2.5M20.5 23h3.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="ag-card__text">
+              <h3 class="ag-card__title">Wireframe playbook</h3>
+              <p class="ag-card__desc">Seven steps from wireframe to components, grid, and states.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ===== EXPERIMENT ===== -->
+      <section id="experiment" class="section">
+        <h2 class="section__title">Experiment</h2>
+        <p class="body">The wireframe was well structured. It carried every front-end rule: accepted data types, limits, cross-field checks. I handed it to the agent with one prompt: convert this into a front-end ready screen, using only Carbon&rsquo;s guidelines. The prompt works like a brief to a senior engineer: analyse the wireframe, map it to components, define interactions and validation, build, then check its own work against a hygiene checklist.</p>
+
+        <figure class="asset-slot sa-shot" data-caption="The rulebook file the agent reads">
+          <img src="assets/img/agentic-ds/rules-file.png" alt="The rulebook file the agent reads before building: a code editor showing the front-end rules" />
+        </figure>
+      </section>
+
+      <!-- ===== RESULT ===== -->
+      <section id="result" class="section">
+        <h2 class="section__title">Result</h2>
+        <p class="body">The screen came back working. Loan amounts format with commas, percentages stop at their caps, Max has to exceed Min, and dates can&rsquo;t be backdated. The wireframe&rsquo;s validation rules were all applied.<br />It also broke. Inputs lost focus after every keystroke. Tables grew two scrollbars. Date pickers jumped the scroll position. Each failure became a rule in the file, so it wouldn&rsquo;t happen twice.</p>
+
+        <figure class="asset-slot sa-shot" data-caption="The screen the agent built">
+          <img src="assets/img/agentic-ds/result-screen.png" alt="The screen the agent built: a Product - Create form with tabs and an editable table" />
+        </figure>
+      </section>
+
+      <!-- ===== LEARNING ===== -->
+      <section id="learning" class="section">
+        <h2 class="section__title">Learning</h2>
+        <p class="body">The agent didn&rsquo;t replace the thinking. It took the assembly.</p>
+
+        <div class="ag-lessons">
+          <div class="ag-lesson">
+            <span class="ag-lesson__num">1.</span>
+            <div class="ag-lesson__text">
+              <h3 class="ag-lesson__title">Treat it like a junior designer</h3>
+              <p class="ag-lesson__desc">It handles execution. I handle decisions, users and testing.</p>
+            </div>
+          </div>
+          <div class="ag-lesson">
+            <span class="ag-lesson__num">2.</span>
+            <div class="ag-lesson__text">
+              <h3 class="ag-lesson__title">Structure makes AI trustworthy</h3>
+              <p class="ag-lesson__desc">Without rules, agents make things up. With a design system written for them, they stay on brand.</p>
+            </div>
+          </div>
+          <div class="ag-lesson">
+            <span class="ag-lesson__num">3.</span>
+            <div class="ag-lesson__text">
+              <h3 class="ag-lesson__title">The effort moves upstream</h3>
+              <p class="ag-lesson__desc">Good wireframe and rules in, good screen out. Teams get consistent, on-brand screens, and the thinking goes into the spec.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BANNER: try the agent ===== -->
+      <aside class="ag-banner" aria-label="Try the agent yourself">
+        <div class="ag-banner__text">
+          <h2 class="ag-banner__title">Try the <span class="ag-banner__em">agent</span> yourself</h2>
+          <p class="ag-banner__desc">Clone the repo, drop in a wireframe, and watch it build a Carbon screen</p>
+        </div>
+        <a class="ag-banner__btn" href="https://github.com/shivamsoni164/Agentic-Carbon-Design-System" target="_blank" rel="noopener noreferrer">
+          <span>Try now</span>
+          <img class="ag-banner__icon" src="assets/img/agentic-ds/github.png" width="21" height="21" alt="" />
+          <span class="visually-hidden">(opens the GitHub repository in a new tab)</span>
+        </a>
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__credit">Designed + Coded with <span class="heart">&hearts;</span> by Shivam &amp; Claude</p>
+      <nav class="site-footer__links" aria-label="Social">
+        <a href="https://www.linkedin.com/in/designbyshivam/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:shivamsoni164@gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js?v=20261016"></script>
+</body>
+</html>
